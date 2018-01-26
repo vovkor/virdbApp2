@@ -1,0 +1,64 @@
+﻿@model virdbApp2.Models.audit
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>audit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.owner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.field_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.field_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.old_value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.old_value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.new_value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.new_value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.action_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.action_date)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

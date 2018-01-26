@@ -1,0 +1,127 @@
+﻿@* vovkor *@
+@*  @model IEnumerable<virdbApp2.Models.maindb> *@
+@model PagedList.IPagedList<virdbApp2.Models.maindb>
+@using PagedList.Mvc;
+@using Microsoft.AspNet.Identity;
+
+@{
+    ViewBag.Title = "Accession List";
+}
+
+<h3>Accession List</h3>
+<!-- 20.02.2015 VAV -->
+@if (User.Identity.GetUserName() != "" ) 
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
+@using (Html.BeginForm("Index", "maindb", FormMethod.Get))
+{
+    
+        <tr>
+            <th>
+                Search: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                <input type="submit" value="Search" />
+            </th>
+            <th> |
+                @Html.Label("Count records:")
+                @* @Html.TextBox("countRecords", ViewBag.countRecords as string, new { disabled = "disabled" })  *@
+                @Html.Display("countRecords")
+            </th>
+</tr>   
+    
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @*  @Html.DisplayNameFor(model => model.accenumb) *@
+            @Html.ActionLink("Accession number", "Index", new { sortOrder = ViewBag.AccenumbSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @* @Html.DisplayNameFor(model => model.accename_rus) *@ 
+            @Html.ActionLink("Name (RUS)", "Index", new { sortOrder = ViewBag.NameRusSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Crop name
+        </th>
+        <th>
+            Taxonomy
+        </th>
+        <th>
+            @Html.ActionLink("Acquisition date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+ @*     <th>
+    @Html.ActionLink("Lat | Long", "Index", new { sortOrder = ViewBag.CoordSortParm, currentFilter = ViewBag.CurrentFilter })
+    </th>
+
+    <th>
+    @Html.ActionLink("Lat|Long", "Index", new { sortOrder = ViewBag.CoordSortParm, currentFilter = ViewBag.CurrentFilter })
+    </th>
+*@       
+ 
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.accenumb)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accename_eng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accename_rus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.botanic.taxonomy_crop.crop_name_eng)
+        </td>
+        <td>
+            <!-- можно проваливаться -->
+            @Html.DisplayFor(modelItem => item.botanic.taxonomy_genus.taxonomy_family.family_name_calc)
+            @Html.DisplayFor(modelItem => item.botanic.taxonomy_genus.genus_name_calc)
+            @Html.DisplayFor(modelItem => item.botanic.species_calc)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.GetAcqDate)
+        </td>
+        @*<td>
+    @Html.DisplayFor(modelItem => item.latitude)  @Html.DisplayFor(modelItem => item.longitude)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.LatLong_calc)
+    </td>
+        *@
+
+        <!-- 19.02.2015 VAV -->
+        @if (User.Identity.GetUserName().Trim().ToUpper() == item.owner_str.Trim().ToUpper())
+        {
+            <td>    
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.id })
+            </td>
+        }
+
+    </tr>
+}
+
+</table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

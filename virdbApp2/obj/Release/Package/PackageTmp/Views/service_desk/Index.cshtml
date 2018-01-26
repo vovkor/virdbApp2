@@ -1,0 +1,117 @@
+﻿@model IEnumerable<virdbApp2.Models.service_desk>
+@using Microsoft.AspNet.Identity;
+
+
+@{
+    ViewBag.Title = "Заявки на тех. обслуживание";
+}
+
+<h2>Заявки на тех. обслуживание</h2>
+
+<!-- vovkor -->
+@if (User.Identity.GetUserName() != "")
+{
+    <p>
+        @Html.ActionLink("Создать заявку", "Create")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.number_request)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_begin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_end)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.task)
+        </th>
+@*
+        <th>
+            @Html.DisplayNameFor(model => model.what_done)
+        </th>
+*@
+        <th>
+            @Html.DisplayNameFor(model => model.fio)
+        </th>
+        <th>
+            Ответственный 
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sd_status.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.number_request)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GetDateBegin)
+        </td>
+        <td>
+         @* @Html.DisplayFor(modelItem => item.date_end) *@
+            @Html.DisplayFor(modelItem => item.GetDateEnd)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.task)
+        </td>
+@*
+    <td>
+        @Html.DisplayFor(modelItem => item.what_done)
+    </td>
+*@
+        <td>
+            @Html.DisplayFor(modelItem => item.fio)
+        </td>
+ 
+
+        <td>
+            @Html.DisplayFor(modelItem => item.user.fio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sd_status.name)
+           
+        </td>
+        
+        <!-- vovkor -->
+        @if ((User.Identity.GetUserName().Trim().ToUpper() == item.author.Trim().ToUpper() ))
+        {
+            <td>
+                @if (item.status_id == 1)
+                {
+                     @Html.ActionLink("Edit", "Edit", new { id = item.number_request })
+                }    
+                else
+                { 
+                    @Html.ActionLink("Details", "Details", new { id = item.number_request })
+                }
+            </td>
+        }
+        <!-- ViewBag заполнили в контроллере, а считываем в представлении. Для доступа Андрею  -->
+  
+        @if (ViewBag.hasPermission == "1")
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.number_request }) |
+                @Html.ActionLink("Details", "Details", new { id = item.number_request }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.number_request })
+            </td>
+        }
+    
+    </tr>
+}
+</table>

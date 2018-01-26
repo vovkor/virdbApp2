@@ -1,0 +1,214 @@
+﻿@model virdbApp2.Models.maindb
+@using Microsoft.AspNet.Identity;
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3>Details</h3>
+
+<div class="container">
+ 
+    <div class="row">
+        @Html.LabelFor(model => model.accenumb, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.accenumb)
+        </div>
+        @Html.LabelFor(model => model.collnumb, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.collnumb)
+        </div>
+    </div>
+
+    @*vovkor taxonomy*@
+    <div class="row">
+        @Html.Label("Taxonomy", new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @*оказывается можно проваливаться в связанные таблицы*@
+            @Html.DisplayFor(model => model.botanic.taxonomy_genus.taxonomy_family.family_name_calc)
+            @Html.DisplayFor(model => model.botanic.taxonomy_genus.genus_name_calc)
+            @Html.DisplayFor(model => model.botanic.species_calc)
+        </div>
+        @Html.LabelFor(model => model.acqdate, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.GetAcqDate)
+        </div>
+    </div>
+    <div class="row"><br></div>
+    @*наименования*@
+    <div class="row">
+        @Html.LabelFor(model => model.accename_eng, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.accename_eng)
+        
+        </div>
+        @Html.LabelFor(model => model.accename_rus, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.accename_rus)
+         
+        </div>
+    </div>
+    <div class="row"><br></div>
+    @* институты *@
+    <div class="row">
+        @Html.LabelFor(model => model.collcode, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.INSTITUT1.NAMEINST)
+        </div>
+     </div>
+    <div class="row">
+        @Html.LabelFor(model => model.bredcode, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.INSTITUT2.NAMEINST)
+        </div>
+     </div>
+    <div class="row">
+        @Html.LabelFor(model => model.doncty, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.geography1.GEO_ENG)
+        </div>
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.donor, new { @class = "control-label col-sm-2" }) 
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.INSTITUT.NAMEINST)
+        </div>
+    </div>
+    <div class="row"><br></div>
+    <div class="row">
+        @Html.LabelFor(model => model.expedition, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.KRIS_EXP.STT)
+            @Html.DisplayFor(model => model.KRIS_EXP.SUP)
+            @Html.DisplayFor(model => model.KRIS_EXP.GOD)
+        </div>
+     </div>
+    <div class="row"><br></div>
+    <div class="row">
+        @Html.LabelFor(model => model.oricode, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.geography.GEO_ENG) @*@Html.DropDownList("oricode", String.Empty)*@
+        </div>
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.collsite_eng, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.collsite_eng)
+         </div>
+        @Html.LabelFor(model => model.collsite_rus, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.collsite_rus)
+         </div>
+    </div>
+    <div class="row"><br></div>
+    <div class="row">
+        @Html.LabelFor(model => model.liffom, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.liffom1.fullname)
+        </div>
+        @Html.LabelFor(model => model.sampstat, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+           @Html.DisplayFor(model => model.sampstat_full.fullname)
+        </div>
+    </div>
+    <div class="row">
+        @Html.LabelFor(model => model.storage, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.storage1.fullname)
+        </div>
+        @Html.LabelFor(model => model.collsrc, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.collsrc1.name_rus)
+        </div>
+    </div>
+    <div class="row">
+        @Html.LabelFor(model => model.nintrod, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.nintrod)
+        </div>
+        @Html.LabelFor(model => model.latitude, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.latitude)
+        </div>
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.nexped, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.nexped)
+        </div>
+        @Html.LabelFor(model => model.longitude, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.longitude)
+        </div>
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.nother, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.nother)
+        </div>
+        @Html.LabelFor(model => model.elevation, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.elevation)
+        </div>
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.ndonor, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.ndonor)
+        </div>
+    </div>
+    <div class="row">
+        @Html.LabelFor(model => model.duplsite, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.duplsite)
+        </div>
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.pedigree_eng, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.pedigree_eng)
+        </div>
+        @Html.LabelFor(model => model.pedigree_rus, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.pedigree_rus)
+        </div>
+    </div>
+    <div class="row">
+        @Html.LabelFor(model => model.dostupen, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.dostupen)
+        </div>
+        @Html.LabelFor(model => model.owner_str, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.DisplayFor(model => model.owner_str)
+        </div>
+    </div>
+    <div class="row">
+        @Html.LabelFor(model => model.REMARKS, new { @class = "control-label col-sm-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.REMARKS)
+        </div>
+    </div>
+</div>
+<div>
+    <!-- 19.02.2015 VAV -->
+    @if (User.Identity.GetUserName() == Model.owner_str)
+    {
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    }
+    else
+    {
+        <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    }
+</div>

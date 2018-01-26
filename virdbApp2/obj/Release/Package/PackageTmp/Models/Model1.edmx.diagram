@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a0533ad0340245b98ee85c66514fe7bf" Name="Diagram1" ZoomLevel="57">
+        <EntityTypeShape EntityType="virdb2Model.botanic" Width="1.5" PointX="9" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="virdb2Model.collsrc" Width="1.5" PointX="7.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="virdb2Model.geography" Width="1.5" PointX="0.75" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="virdb2Model.INSTITUT" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="virdb2Model.KRIS_EXP" Width="1.5" PointX="0.75" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="virdb2Model.liffom" Width="1.5" PointX="0.75" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="virdb2Model.maindb" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="virdb2Model.sampstat_full" Width="1.5" PointX="0.75" PointY="43.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="virdb2Model.storage" Width="1.5" PointX="0.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="virdb2Model.taxonomy_crop" Width="1.5" PointX="0.875" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="virdb2Model.taxonomy_family" Width="1.5" PointX="1.5" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="virdb2Model.taxonomy_genus" Width="1.5" PointX="1.5" PointY="21.125" IsExpanded="true" />
+        <AssociationConnector Association="virdb2Model.FK_botanic_taxonomy_crop" ManuallyRouted="false" />
+        <AssociationConnector Association="virdb2Model.FK_botanic_taxonomy_genus" ManuallyRouted="false" />
+        <AssociationConnector Association="virdb2Model.FK_maindb_botanic" ManuallyRouted="false" />
+        <AssociationConnector Association="virdb2Model.FK_maindb_collsrc" ManuallyRouted="false" />
+        <AssociationConnector Association="virdb2Model.FK_maindb_geography" ManuallyRouted="false" />
+        <AssociationConnector Association="virdb2Model.FK_maindb_geography1" ManuallyRouted="false" />
+        <AssociationConnector Association="virdb2Model.FK_maindb_INSTITUT" ManuallyRouted="false" />
+        <AssociationConnector Association="virdb2Model.FK_maindb_INSTITUT1" ManuallyRouted="false" />
+        <AssociationConnector Association="virdb2Model.FK_maindb_INSTITUT2" ManuallyRouted="false" />
+        <AssociationConnector Association="virdb2Model.FK_maindb_KRIS_EXP" ManuallyRouted="false" />
+        <AssociationConnector Association="virdb2Model.FK_maindb_liffom" ManuallyRouted="false" />
+        <AssociationConnector Association="virdb2Model.FK_maindb_sampstat_full" ManuallyRouted="false" />
+        <AssociationConnector Association="virdb2Model.FK_maindb_storage" ManuallyRouted="false" />
+        <AssociationConnector Association="virdb2Model.FK_taxonomy_genus_taxonomy_family" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="virdb2Model.audit" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="virdb2Model.user_roles" Width="1.5" PointX="7.625" PointY="6.875" />
+        <EntityTypeShape EntityType="virdb2Model.users" Width="1.5" PointX="5.375" PointY="7" />
+        <AssociationConnector Association="virdb2Model.FK_user_roles_master" />
+        <AssociationConnector Association="virdb2Model.FK_user_roles_slave" />
+        <EntityTypeShape EntityType="virdb2Model.sd_kind" Width="1.5" PointX="9.25" PointY="5.375" />
+        <EntityTypeShape EntityType="virdb2Model.sd_status" Width="1.5" PointX="9.25" PointY="1.375" />
+        <EntityTypeShape EntityType="virdb2Model.service_desk" Width="1.5" PointX="11.5" PointY="0.875" />
+        <AssociationConnector Association="virdb2Model.FK_service_desk_sd_kind" />
+        <AssociationConnector Association="virdb2Model.FK_service_desk_sd_status" />
+        <AssociationConnector Association="virdb2Model.FK_service_desk_users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

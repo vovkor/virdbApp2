@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="virdb2ModelStoreContainer" CdmEntityContainer="virdb2Entities">
+    <EntitySetMapping Name="botanic">
+      <EntityTypeMapping TypeName="virdb2Model.botanic">
+        <MappingFragment StoreEntitySet="botanic">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="crop_code" ColumnName="crop_code" />
+          <ScalarProperty Name="genus_code" ColumnName="genus_code" />
+          <ScalarProperty Name="species" ColumnName="species" />
+          <ScalarProperty Name="species_author" ColumnName="species_author" />
+          <ScalarProperty Name="species_synonym" ColumnName="species_synonym" />
+          <ScalarProperty Name="subspecies" ColumnName="subspecies" />
+          <ScalarProperty Name="subspecies_author" ColumnName="subspecies_author" />
+          <ScalarProperty Name="grp_variety" ColumnName="grp_variety" />
+          <ScalarProperty Name="grp_variety_author" ColumnName="grp_variety_author" />
+          <ScalarProperty Name="variety" ColumnName="variety" />
+          <ScalarProperty Name="variety_author" ColumnName="variety_author" />
+          <ScalarProperty Name="subvariety" ColumnName="subvariety" />
+          <ScalarProperty Name="subvariety_author" ColumnName="subvariety_author" />
+          <ScalarProperty Name="forma" ColumnName="forma" />
+          <ScalarProperty Name="forma_author" ColumnName="forma_author" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="collsrc">
+      <EntityTypeMapping TypeName="virdb2Model.collsrc">
+        <MappingFragment StoreEntitySet="collsrc">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name_rus" ColumnName="name_rus" />
+          <ScalarProperty Name="name_eng" ColumnName="name_eng" />
+          <ScalarProperty Name="code_GRIN" ColumnName="code_GRIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="geography">
+      <EntityTypeMapping TypeName="virdb2Model.geography">
+        <MappingFragment StoreEntitySet="geography">
+          <ScalarProperty Name="Код" ColumnName="Код" />
+          <ScalarProperty Name="ORIGCTY" ColumnName="ORIGCTY" />
+          <ScalarProperty Name="GGP" ColumnName="GGP" />
+          <ScalarProperty Name="GEORUS" ColumnName="GEORUS" />
+          <ScalarProperty Name="FULLGEORUS" ColumnName="FULLGEORUS" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CENTER_PROV_RUS" ColumnName="CENTER_PROV_RUS" />
+          <ScalarProperty Name="CENTER_PROV_ENG" ColumnName="CENTER_PROV_ENG" />
+          <ScalarProperty Name="ENG_GRIN" ColumnName="ENG_GRIN" />
+          <ScalarProperty Name="ENG" ColumnName="ENG" />
+          <ScalarProperty Name="GEO_ENG" ColumnName="GEO_ENG" />
+          <ScalarProperty Name="LON" ColumnName="LON" />
+          <ScalarProperty Name="LAT" ColumnName="LAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INSTITUT">
+      <EntityTypeMapping TypeName="virdb2Model.INSTITUT">
+        <MappingFragment StoreEntitySet="INSTITUT">
+          <ScalarProperty Name="NA" ColumnName="NA" />
+          <ScalarProperty Name="NAMEINST" ColumnName="NAMEINST" />
+          <ScalarProperty Name="NAMEENG" ColumnName="NAMEENG" />
+          <ScalarProperty Name="FAO" ColumnName="FAO" />
+          <ScalarProperty Name="Дубль" ColumnName="Дубль" />
+          <ScalarProperty Name="GEOCOD" ColumnName="GEOCOD" />
+          <ScalarProperty Name="GEOENGNEW" ColumnName="GEOENGNEW" />
+          <ScalarProperty Name="ADRES" ColumnName="ADRES" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="TEL" ColumnName="TEL" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="KATINST" ColumnName="KATINST" />
+          <ScalarProperty Name="ACRONYM" ColumnName="ACRONYM" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KRIS_EXP">
+      <EntityTypeMapping TypeName="virdb2Model.KRIS_EXP">
+        <MappingFragment StoreEntitySet="KRIS_EXP">
+          <ScalarProperty Name="NUM_EXP" ColumnName="NUM_EXP" />
+          <ScalarProperty Name="ACR" ColumnName="ACR" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="STT_E" ColumnName="STT_E" />
+          <ScalarProperty Name="REGVU" ColumnName="REGVU" />
+          <ScalarProperty Name="GEOCOD" ColumnName="GEOCOD" />
+          <ScalarProperty Name="COUNT_N" ColumnName="COUNT_N" />
+          <ScalarProperty Name="GOD" ColumnName="GOD" />
+          <ScalarProperty Name="DAT" ColumnName="DAT" />
+          <ScalarProperty Name="NAZV" ColumnName="NAZV" />
+          <ScalarProperty Name="NOTR" ColumnName="NOTR" />
+          <ScalarProperty Name="OBL" ColumnName="OBL" />
+          <ScalarProperty Name="REG" ColumnName="REG" />
+          <ScalarProperty Name="REG_E1" ColumnName="REG_E1" />
+          <ScalarProperty Name="REG_E2" ColumnName="REG_E2" />
+          <ScalarProperty Name="REG_E3" ColumnName="REG_E3" />
+          <ScalarProperty Name="REG_E4" ColumnName="REG_E4" />
+          <ScalarProperty Name="REG_E5" ColumnName="REG_E5" />
+          <ScalarProperty Name="REG_E6" ColumnName="REG_E6" />
+          <ScalarProperty Name="REG_E7" ColumnName="REG_E7" />
+          <ScalarProperty Name="SUP" ColumnName="SUP" />
+          <ScalarProperty Name="PPL" ColumnName="PPL" />
+          <ScalarProperty Name="PPL_E" ColumnName="PPL_E" />
+          <ScalarProperty Name="KATEX" ColumnName="KATEX" />
+          <ScalarProperty Name="SOB" ColumnName="SOB" />
+          <ScalarProperty Name="SOB_E1" ColumnName="SOB_E1" />
+          <ScalarProperty Name="SOB_E2" ColumnName="SOB_E2" />
+          <ScalarProperty Name="NOB" ColumnName="NOB" />
+          <ScalarProperty Name="VID" ColumnName="VID" />
+          <ScalarProperty Name="PRM" ColumnName="PRM" />
+          <ScalarProperty Name="PRM_E" ColumnName="PRM_E" />
+          <ScalarProperty Name="NP" ColumnName="NP" />
+          <ScalarProperty Name="GP" ColumnName="GP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="liffom">
+      <EntityTypeMapping TypeName="virdb2Model.liffom">
+        <MappingFragment StoreEntitySet="liffom">
+          <ScalarProperty Name="form_code" ColumnName="form_code" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="loskutov_code" ColumnName="loskutov_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="maindb">
+      <EntityTypeMapping TypeName="virdb2Model.maindb">
+        <MappingFragment StoreEntitySet="maindb">
+          <ScalarProperty Name="owner_str" ColumnName="owner_str" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="accenumb" ColumnName="accenumb" />
+          <ScalarProperty Name="collnumb" ColumnName="collnumb" />
+          <ScalarProperty Name="botanic_code" ColumnName="botanic_code" />
+          <ScalarProperty Name="accename_eng" ColumnName="accename_eng" />
+          <ScalarProperty Name="accename_rus" ColumnName="accename_rus" />
+          <ScalarProperty Name="acqdate" ColumnName="acqdate" />
+          <ScalarProperty Name="doncty" ColumnName="doncty" />
+          <ScalarProperty Name="oricode" ColumnName="oricode" />
+          <ScalarProperty Name="collsite_eng" ColumnName="collsite_eng" />
+          <ScalarProperty Name="collsite_rus" ColumnName="collsite_rus" />
+          <ScalarProperty Name="colldate" ColumnName="colldate" />
+          <ScalarProperty Name="liffom" ColumnName="liffom" />
+          <ScalarProperty Name="sampstat" ColumnName="sampstat" />
+          <ScalarProperty Name="dbkey" ColumnName="dbkey" />
+          <ScalarProperty Name="nintrod" ColumnName="nintrod" />
+          <ScalarProperty Name="nexped" ColumnName="nexped" />
+          <ScalarProperty Name="nother" ColumnName="nother" />
+          <ScalarProperty Name="ndonor" ColumnName="ndonor" />
+          <ScalarProperty Name="donor" ColumnName="donor" />
+          <ScalarProperty Name="duplsite" ColumnName="duplsite" />
+          <ScalarProperty Name="storage" ColumnName="storage" />
+          <ScalarProperty Name="pedigree_rus" ColumnName="pedigree_rus" />
+          <ScalarProperty Name="pedigree_eng" ColumnName="pedigree_eng" />
+          <ScalarProperty Name="collcode" ColumnName="collcode" />
+          <ScalarProperty Name="bredcode" ColumnName="bredcode" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="elevation" ColumnName="elevation" />
+          <ScalarProperty Name="collsrc" ColumnName="collsrc" />
+          <ScalarProperty Name="expedition" ColumnName="expedition" />
+          <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+          <ScalarProperty Name="dostupen" ColumnName="dostupen" />
+          <ScalarProperty Name="date_reseed" ColumnName="date_reseed" />
+          <ScalarProperty Name="owner" ColumnName="owner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sampstat_full">
+      <EntityTypeMapping TypeName="virdb2Model.sampstat_full">
+        <MappingFragment StoreEntitySet="sampstat_full">
+          <ScalarProperty Name="sampstat" ColumnName="sampstat" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="stat_code" ColumnName="stat_code" />
+          <ScalarProperty Name="name_eng" ColumnName="name_eng" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="storage">
+      <EntityTypeMapping TypeName="virdb2Model.storage">
+        <MappingFragment StoreEntitySet="storage">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="taxonomy_crop">
+      <EntityTypeMapping TypeName="virdb2Model.taxonomy_crop">
+        <MappingFragment StoreEntitySet="taxonomy_crop">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="crop_name_eng" ColumnName="crop_name_eng" />
+          <ScalarProperty Name="crop_name_rus" ColumnName="crop_name_rus" />
+          <ScalarProperty Name="alternate_crop_name" ColumnName="alternate_crop_name" />
+          <ScalarProperty Name="crop_authority" ColumnName="crop_authority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="taxonomy_family">
+      <EntityTypeMapping TypeName="virdb2Model.taxonomy_family">
+        <MappingFragment StoreEntitySet="taxonomy_family">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="family_name" ColumnName="family_name" />
+          <ScalarProperty Name="alternate_family_name" ColumnName="alternate_family_name" />
+          <ScalarProperty Name="family_authority" ColumnName="family_authority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="taxonomy_genus">
+      <EntityTypeMapping TypeName="virdb2Model.taxonomy_genus">
+        <MappingFragment StoreEntitySet="taxonomy_genus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="genus_name" ColumnName="genus_name" />
+          <ScalarProperty Name="alternate_genus_name" ColumnName="alternate_genus_name" />
+          <ScalarProperty Name="genus_authority" ColumnName="genus_authority" />
+          <ScalarProperty Name="subgenus_name" ColumnName="subgenus_name" />
+          <ScalarProperty Name="alternate_subgenus_name" ColumnName="alternate_subgenus_name" />
+          <ScalarProperty Name="subgenus_authority" ColumnName="subgenus_authority" />
+          <ScalarProperty Name="section_name" ColumnName="section_name" />
+          <ScalarProperty Name="alternate_section_name" ColumnName="alternate_section_name" />
+          <ScalarProperty Name="section_authority" ColumnName="section_authority" />
+          <ScalarProperty Name="subsection_name" ColumnName="subsection_name" />
+          <ScalarProperty Name="alternate_subsection_name" ColumnName="alternate_subsection_name" />
+          <ScalarProperty Name="subsection_authority" ColumnName="subsection_authority" />
+          <ScalarProperty Name="series_name" ColumnName="series_name" />
+          <ScalarProperty Name="alternate_series_name" ColumnName="alternate_series_name" />
+          <ScalarProperty Name="series_authority" ColumnName="series_authority" />
+          <ScalarProperty Name="subseries_name" ColumnName="subseries_name" />
+          <ScalarProperty Name="alternate_subseries_name" ColumnName="alternate_subseries_name" />
+          <ScalarProperty Name="subseries_authority" ColumnName="subseries_authority" />
+          <ScalarProperty Name="family_code" ColumnName="family_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="maindb_owner">
+      <EntityTypeMapping TypeName="virdb2Model.maindb_owner">
+        <MappingFragment StoreEntitySet="maindb_owner">
+          <ScalarProperty Name="owner_str" ColumnName="owner_str" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="audit">
+      <EntityTypeMapping TypeName="virdb2Model.audit">
+        <MappingFragment StoreEntitySet="audit">
+          <ScalarProperty Name="accenumb" ColumnName="accenumb" />
+          <ScalarProperty Name="acc_id" ColumnName="acc_id" />
+          <ScalarProperty Name="action_date" ColumnName="action_date" />
+          <ScalarProperty Name="new_value" ColumnName="new_value" />
+          <ScalarProperty Name="old_value" ColumnName="old_value" />
+          <ScalarProperty Name="field_name" ColumnName="field_name" />
+          <ScalarProperty Name="owner" ColumnName="owner" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_roles">
+      <EntityTypeMapping TypeName="virdb2Model.user_roles">
+        <MappingFragment StoreEntitySet="user_roles">
+          <ScalarProperty Name="master" ColumnName="master" />
+          <ScalarProperty Name="slave" ColumnName="slave" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="virdb2Model.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="fio" ColumnName="fio" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sd_kind">
+      <EntityTypeMapping TypeName="virdb2Model.sd_kind">
+        <MappingFragment StoreEntitySet="sd_kind">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sd_status">
+      <EntityTypeMapping TypeName="virdb2Model.sd_status">
+        <MappingFragment StoreEntitySet="sd_status">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="service_desk">
+      <EntityTypeMapping TypeName="virdb2Model.service_desk">
+        <MappingFragment StoreEntitySet="service_desk">
+          <ScalarProperty Name="fio" ColumnName="fio" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="what_done" ColumnName="what_done" />
+          <ScalarProperty Name="task" ColumnName="task" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="date_end" ColumnName="date_end" />
+          <ScalarProperty Name="date_begin" ColumnName="date_begin" />
+          <ScalarProperty Name="kind_id" ColumnName="kind_id" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="number_request" ColumnName="number_request" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,58 @@
+﻿@model virdbApp2.Models.audit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>audit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.owner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.field_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.field_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.old_value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.old_value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.new_value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.new_value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.action_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.action_date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

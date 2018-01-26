@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Список";
+}
+
+<h2>Список</h2>
+@* в Shared не заработало
+    @Html.Partial("~/Viwes/Shared/WebFormRptBoxes.aspx")
+*@
+<div>
+    <iframe id="Reports_boxes" src="~/RPTWebForms/WebFormPrtSeeds.aspx"
+            width="90%" height="1000"></iframe>
+</div>

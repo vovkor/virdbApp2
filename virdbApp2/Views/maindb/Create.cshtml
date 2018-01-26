@@ -1,0 +1,572 @@
+﻿@model virdbApp2.Models.maindb
+@using Microsoft.AspNet.Identity;
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h3>Create</h3>
+
+@* vovkor подключаем jquery*@
+<script src="../../Scripts/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery-ui-1.11.2.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery-ui-1.11.2.min.js" type="text/javascript"></script>
+
+@* автозаполнение экспедиций *@
+<link href="../../Content/themes/base/all.css" rel="stylesheet" type="text/css"> 
+
+@*                             СКРИПТЫ НАДО ПЕРЕНЕСТИ ВНИЗ   в section Scripts {                 *@
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">        @* было form-horizontal*@
+        @*<h4>maindb</h4>*@
+        <hr />
+        @Html.ValidationSummary(true)
+
+
+        <div class="row">
+            @Html.RequiredLabelFor(model => model.accenumb, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.accenumb)
+                @Html.ValidationMessageFor(model => model.accenumb)
+            </div>
+            @Html.LabelFor(model => model.collnumb, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.collnumb)
+                @Html.ValidationMessageFor(model => model.collnumb)
+            </div>
+        </div>
+        <div class="row"><br></div>
+
+        @*vovkor family*@
+        <div class="row">
+            @Html.LabelFor(model => model.botanic_code, "Family", new { @class = "control-label col-sm-2" }) @* @Html.Label("Family", new { @class = "control-label col-sm-2" }) *@
+            <div class="col-sm-4">
+                @Html.DropDownList("taxon_family", String.Empty) @* при изменении отработает $("#taxon_family").change *@
+                @Html.ValidationMessageFor(model => model.botanic_code)
+            </div>
+            @Html.RequiredLabelFor(model => model.acqdate, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.acqdate)
+                @Html.ValidationMessageFor(model => model.acqdate)
+            </div>
+        </div>
+
+        @*vovkor genus*@
+        <div class="row">
+            @Html.LabelFor(model => model.botanic_code, "Genus", new { @class = "control-label col-sm-2" }) @* @Html.Label("Genus", new { @class = "control-label col-sm-2" }) *@
+            <div class="col-sm-4">
+                @Html.DropDownList("taxon_genus", String.Empty) @* при изменении отработает $("#taxon_genus").change *@
+                @Html.ValidationMessageFor(model => model.botanic_code)
+            </div>
+            @Html.LabelFor(model => model.colldate, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.colldate)
+                @Html.ValidationMessageFor(model => model.colldate)
+            </div>
+        </div>
+    
+        @* получить значение выпадающего списка можно в его контроллере.
+        см. ActionResult Edit(...) после [HttpPost]
+        первый аргумент в DropDownList("botanic_code", String.Empty) это "botanic_code", должен совпадать с аргументом в ActionResult Edit(...) *@
+        <div class="row">
+            @Html.RequiredLabelFor(model => model.botanic_code, new { @class = "control-label col-sm-2"})
+            <div class="col-sm-4">
+                @Html.DropDownList("botanic_code", String.Empty)
+                @Html.ValidationMessageFor(model => model.botanic_code)
+            </div>
+            @Html.LabelFor(model => model.date_reseed, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-2">
+                @Html.EditorFor(model => model.date_reseed)
+                @Html.ValidationMessageFor(model => model.date_reseed)
+            </div>
+        </div>
+        <div class="row"><br></div>
+        @*наименования*@
+        <div class="row">
+            @Html.RequiredLabelFor(model => model.accename_eng, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.accename_eng)
+                @Html.ValidationMessageFor(model => model.accename_eng)
+            </div>
+            @Html.RequiredLabelFor(model => model.accename_rus, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.accename_rus)
+                @Html.ValidationMessageFor(model => model.accename_rus)
+            </div>
+        </div>
+        <div class="row"><br></div>
+        @* институты *@
+        <div class="row">
+            @Html.LabelFor(model => model.collcode, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.DropDownList("collcode_country", String.Empty) @* при изменении отработает $("#collcode_country").change *@
+            </div>
+            <div class="col-sm-6">
+                @Html.DropDownList("collcode", String.Empty)
+                @Html.ValidationMessageFor(model => model.collcode)
+            </div>
+        </div>
+        <div class="row">
+            @Html.LabelFor(model => model.bredcode, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.DropDownList("bredcode_country", String.Empty) @* при изменении отработает $("#bredcode_country").change *@
+            </div>
+            <div class="col-sm-6">
+                @Html.DropDownList("bredcode", String.Empty)
+                @Html.ValidationMessageFor(model => model.bredcode)
+            </div>
+        </div>
+        <div class="row">
+            @Html.LabelFor(model => model.doncty, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.DropDownList("doncty_country", String.Empty) @* при изменении отработает $("#doncty_country").change *@
+            </div>
+            <div class="col-sm-6">
+                @Html.DropDownList("doncty", String.Empty)
+                @Html.ValidationMessageFor(model => model.doncty)
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.donor, new { @class = "control-label col-sm-2" }) @* @Html.LabelFor(model => model.donor, "ЗДЕСЬ ПИШЕМ ПОДПИСЬ", new { @class = "control-label col-md-2" }) *@
+            <div class="col-sm-4">
+                @Html.DropDownList("donor_country", String.Empty) @* при изменении отработает $("#donor_country").change *@
+            </div>
+            <div class="col-sm-6">
+                @Html.DropDownList("donor", String.Empty)
+                @Html.ValidationMessageFor(model => model.donor)
+            </div>
+        </div>
+        <div class="row"><br></div>
+        @*экспедиции   выпадающий список меняем на поле с автозаполнением *@
+        <div class="row">
+            @Html.LabelFor(model => model.expedition, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.TextBox("expedition")
+
+@*********************************************************************************@
+
+            </div>
+            <div class="col-sm-6">
+                @Html.Display("expedition_txt")
+            </div>
+        </div>
+
+
+        @*     <div class="form-group">
+            @Html.LabelFor(model => model.expedition, "expedition", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("expedition", String.Empty)
+                @Html.ValidationMessageFor(model => model.expedition)
+            </div>
+        </div> *@
+        <div class="row"><br></div>
+        <div class="row">
+            @Html.LabelFor(model => model.oricode, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.DropDownList("oricode_country", String.Empty) @* при изменении отработает $("#oricode_country").change *@
+            </div>
+            <div class="col-sm-6">
+                @Html.DropDownList("oricode", String.Empty)
+                @Html.ValidationMessageFor(model => model.oricode)
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.collsite_eng, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.collsite_eng)
+                @Html.ValidationMessageFor(model => model.collsite_eng)
+            </div>
+            @Html.LabelFor(model => model.collsite_rus, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.collsite_rus)
+                @Html.ValidationMessageFor(model => model.collsite_rus)
+            </div>
+        </div>
+
+        <div class="row"><br></div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.liffom, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.DropDownList("liffom", String.Empty)
+                @Html.ValidationMessageFor(model => model.liffom)
+            </div>
+            @Html.LabelFor(model => model.sampstat, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.DropDownList("sampstat", String.Empty)
+                @Html.ValidationMessageFor(model => model.sampstat)
+            </div>
+        </div>
+        <div class="row">
+            @Html.LabelFor(model => model.storage, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.DropDownList("storage", String.Empty)
+                @Html.ValidationMessageFor(model => model.storage)
+            </div>
+
+            @Html.LabelFor(model => model.collsrc, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.DropDownList("collsrc", String.Empty)
+                @Html.ValidationMessageFor(model => model.collsrc)
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.nintrod, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.nintrod)
+                @Html.ValidationMessageFor(model => model.nintrod)
+            </div>
+            @Html.LabelFor(model => model.latitude, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.latitude)
+                @Html.ValidationMessageFor(model => model.latitude)
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.nexped, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.nexped)
+                @Html.ValidationMessageFor(model => model.nexped)
+            </div>
+            @Html.LabelFor(model => model.longitude, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.longitude)
+                @Html.ValidationMessageFor(model => model.longitude)
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.nother, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.nother)
+                @Html.ValidationMessageFor(model => model.nother)
+            </div>
+            @Html.LabelFor(model => model.elevation, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.elevation)
+                @Html.ValidationMessageFor(model => model.elevation)
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.ndonor, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.ndonor)
+                @Html.ValidationMessageFor(model => model.ndonor)
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.duplsite, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.duplsite)
+                @Html.ValidationMessageFor(model => model.duplsite)
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.pedigree_eng, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.pedigree_eng)
+                @Html.ValidationMessageFor(model => model.pedigree_eng)
+            </div>
+
+            @Html.LabelFor(model => model.pedigree_rus, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.pedigree_rus)
+                @Html.ValidationMessageFor(model => model.pedigree_rus)
+            </div>
+        </div>
+
+        <div class="row">
+
+            @Html.LabelFor(model => model.dostupen, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.dostupen)
+                @Html.ValidationMessageFor(model => model.dostupen)
+            </div>
+
+            @Html.LabelFor(model => model.owner_str, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-4">
+                @Html.Editor("owner_str", new { disabled = "disabled" }) <!-- не из таблицы, а из ViewBag-->
+                @Html.ValidationMessageFor(model => model.owner_str)
+            </div>
+        </div>
+        <div class="row">
+            @Html.LabelFor(model => model.REMARKS, new { @class = "control-label col-sm-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.REMARKS)
+                @Html.ValidationMessageFor(model => model.REMARKS)
+            </div>
+        </div>
+
+        <div class="row"><br></div>
+
+
+        @if (User.Identity.GetUserName().Trim().ToUpper() != "")
+        {
+        <div class="row">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+        }    
+    </div>
+}
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+
+        @Scripts.Render("~/bundles/jqueryui") 
+        @Styles.Render("~/Content/themes/base/css")
+        <script type="text/javascript">
+            $(function () {
+                if (!Modernizr.inputtypes.date) {
+                    $(function () {
+                        $("input[type='date']")
+                                    .datepicker({ dateFormat: 'dd/mm/yy' })
+                                    .get(0);
+                    })
+                }
+            });
+        </script>
+
+        @*GetGenus*@
+        <script type="text/javascript">
+            $(document).ready(function () { //отрабатывает всякий раз, когда документ (document) готов к использованию
+                //Dropdownlist event
+                $("#taxon_family").change(function () { // назначает функцию к событию change
+                    $("#taxon_genus").empty(); // чистим GENUS
+                    $("#botanic_code").empty(); // чистим species
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("GetGenus")', // we are calling json method
+                        dataType: 'json',
+                        data: { id: $("#taxon_family").val() }, // передаем аргумент в GetGenus
+                        success: function (data) {
+                            // data contains the JSON formatted list
+                            // of GENUS passed from the controller
+                            $("#taxon_genus").append('<option value="0">-- Выберите Genus --</option>');
+                            $.each(data, function (i, itemData) {
+                                $("#taxon_genus").append('<option value="' + itemData.Value + '">' + itemData.Text + '</option>');
+                            }); // here we are adding option for GENUS
+                        },
+                        error: function (ex) {
+                            alert('Failed to retrieve genus.' + ex);
+                        }
+                    });
+                    return false;
+                })
+            });
+        </script>
+
+        @*GetSpecies*@
+        <script type="text/javascript">
+            $(document).ready(function () { //отрабатывает всякий раз, когда документ (document) готов к использованию
+                //Dropdownlist event
+                $("#taxon_genus").change(function () { // назначает функцию к событию change
+                    $("#botanic_code").empty(); // чистим species
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("GetSpecies")', // we are calling json method
+                        dataType: 'json',
+                        data: { id: $("#taxon_genus").val() }, // передаем аргумент в GetSpecies
+                        success: function (data) {
+                            // data contains the JSON formatted list
+                            // of SPECIES passed from the controller
+                            $("#botanic_code").append('<option value="0">-- Выберите Species --</option>');
+                            $.each(data, function (i, itemData) {
+                                $("#botanic_code").append('<option value="' + itemData.Value + '">' + itemData.Text + '</option>');
+                            }); // here we are adding option for SPECIES
+                        },
+                        error: function (ex) {
+                            alert('Failed to retrieve species.' + ex);
+                        }
+                    });
+                    return false;
+                })
+            });
+        </script>
+
+        @*doncty_country*@
+        <script type="text/javascript">
+            $(document).ready(function () { //отрабатывает всякий раз, когда документ (document) готов к использованию
+                //Dropdownlist event
+                $("#doncty_country").change(function () { // назначает функцию к событию change в поле страна
+                    $("#doncty").empty(); // чистим регион
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("GetRegion")', // we are calling json method
+                        dataType: 'json',
+                        data: { id: $("#doncty_country").val() }, // передаем аргумент в GetDoncty
+                        success: function (data) {
+                            // data contains the JSON formatted list
+                            // of DONCTY passed from the controller
+                            $.each(data, function (i, itemData) {
+                                $("#doncty").append('<option value="' + itemData.Value + '">' + itemData.Text + '</option>');
+                            }); // here we are adding option for DONCTY
+                        },
+                        error: function (ex) {
+                            alert('Failed to retrieve doncty.' + ex);
+                        }
+                    });
+                    return false;
+                })
+            });
+        </script>
+
+        @*oricode_country*@
+        <script type="text/javascript">
+            $(document).ready(function () { //отрабатывает всякий раз, когда документ (document) готов к использованию
+                //Dropdownlist event
+                $("#oricode_country").change(function () { // назначает функцию к событию change в поле страна
+                    $("#oricode").empty(); // чистим регион
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("GetRegion")', // we are calling json method
+                        dataType: 'json',
+                        data: { id: $("#oricode_country").val() }, // передаем аргумент в GetRegion
+                        success: function (data) {
+                            // data contains the JSON formatted list
+                            // of ORICODE passed from the controller
+                            $.each(data, function (i, itemData) {
+                                $("#oricode").append('<option value="' + itemData.Value + '">' + itemData.Text + '</option>');
+                            }); // here we are adding option for ORICODE
+                        },
+                        error: function (ex) {
+                            alert('Failed to retrieve oricode.' + ex);
+                        }
+                    });
+                    return false;
+                })
+            });
+        </script>
+
+        @* donor_country *@
+        <script type="text/javascript">
+            $(document).ready(function () { //отрабатывает всякий раз, когда документ (document) готов к использованию
+                //Dropdownlist event
+                $("#donor_country").change(function () { // назначает функцию к событию change в поле страна
+                    $("#donor").empty(); // чистим институты
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("GetInstitut")', // we are calling json method
+                        dataType: 'json',
+                        data: { id: $("#donor_country").val() }, // передаем аргумент в GetInstitut
+                        success: function (data) {
+                            // data contains the JSON formatted list
+                            // of donor passed from the controller
+                            $.each(data, function (i, itemData) {
+                                $("#donor").append('<option value="' + itemData.Value + '">' + itemData.Text + '</option>');
+                            }); // here we are adding option for collcode
+                        },
+                        error: function (ex) {
+                            alert('Failed to retrieve donor.' + ex);
+                        }
+                    });
+                    return false;
+                })
+            });
+        </script>
+
+        @* collcode_country *@
+        <script type="text/javascript">
+            $(document).ready(function () { //отрабатывает всякий раз, когда документ (document) готов к использованию
+                //Dropdownlist event
+                $("#collcode_country").change(function () { // назначает функцию к событию change в поле страна
+                    $("#collcode").empty(); // чистим институты
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("GetInstitut")', // we are calling json method
+                        dataType: 'json',
+                        data: { id: $("#collcode_country").val() }, // передаем аргумент в GetInstitut
+                        success: function (data) {
+                            // data contains the JSON formatted list
+                            // of collcode passed from the controller
+                            $.each(data, function (i, itemData) {
+                                $("#collcode").append('<option value="' + itemData.Value + '">' + itemData.Text + '</option>');
+                            }); // here we are adding option for collcode
+                        },
+                        error: function (ex) {
+                            alert('Failed to retrieve collcode.' + ex);
+                        }
+                    });
+                    return false;
+                })
+            });
+        </script>
+
+        @* bredcode_country *@
+        <script type="text/javascript">
+            $(document).ready(function () { //отрабатывает всякий раз, когда документ (document) готов к использованию
+                //Dropdownlist event
+                $("#bredcode_country").change(function () { // назначает функцию к событию change в поле страна
+                    $("#bredcode").empty(); // чистим институты
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("GetInstitut")', // we are calling json method
+                        dataType: 'json',
+                        data: { id: $("#bredcode_country").val() }, // передаем аргумент в GetInstitut
+                        success: function (data) {
+                            // data contains the JSON formatted list
+                            // of bredcode passed from the controller
+                            $.each(data, function (i, itemData) {
+                                $("#bredcode").append('<option value="' + itemData.Value + '">' + itemData.Text + '</option>');
+                            }); // here we are adding option for collcode
+                        },
+                        error: function (ex) {
+                            alert('Failed to retrieve bredcode.' + ex);
+                        }
+                    });
+                    return false;
+                })
+            });
+        </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        $("#expedition").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("AutocompleteExpedition")',
+                    type: "POST",
+                    dataType: "json",
+                    data: { term: $("#expedition").val() },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            //alert(index);
+                            return {
+                                label: item.label,
+                                value: item.value
+                            };
+                        }))
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //debugger;
+                        alert(textStatus);
+                    }
+                });
+            }
+        });
+       });
+    </script>
+
+
+
+    }

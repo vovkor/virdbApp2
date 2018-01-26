@@ -1,0 +1,74 @@
+﻿@model virdbApp2.Models.service_desk
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы уверены, что хотите удалить эту заявку?</h3>
+<div>
+    <h4>service desk</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sd_kind.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sd_kind.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.task)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.task)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.what_done)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.what_done)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fio)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sd_status.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sd_status.name)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

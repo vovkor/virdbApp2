@@ -1,0 +1,102 @@
+﻿@model virdbApp2.Models.service_desk
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Создать заявку</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">    @* было form-horizontal*@
+        <h4>Система регистрации заявок</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+@*
+    <div class="form-group">
+        @Html.LabelFor(model => model.author, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.author)
+            @Html.ValidationMessageFor(model => model.author)
+        </div>
+    </div>
+*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.kind_id, "Категория", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("kind_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.kind_id)
+            </div>
+        </div>
+
+@*
+    <div class="form-group">
+         @Html.LabelFor(model => model.status_id, "Статус", htmlAttributes: new { @class = "control-label col-md-2" })
+         <div class="col-md-10">
+             @Html.DropDownList("status_id", String.Empty)
+             @Html.ValidationMessageFor(model => model.status_id)
+         </div>
+     </div>
+*@
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.task, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.task, new { @class = "form-control", rows = "7", placeholder = "Опишите проблему.." })
+                @Html.ValidationMessageFor(model => model.task)
+            </div>
+        </div>
+
+@*
+    <div class="form-group">
+        @Html.LabelFor(model => model.what_done, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.what_done)
+            @Html.ValidationMessageFor(model => model.what_done)
+        </div>
+    </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.user_id, "Ответственный", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("user_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.user_id)
+            </div>
+        </div>
+*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.fio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fio)
+                @Html.ValidationMessageFor(model => model.fio)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.comment, new { @class = "form-control", rows = "5", placeholder = "Отдел, номер комнаты, телефон.." })
+                @Html.ValidationMessageFor(model => model.comment)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

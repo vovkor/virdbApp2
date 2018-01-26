@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="virdb2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="audit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="owner" Type="nvarchar" MaxLength="100" />
+    <Property Name="field_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="old_value" Type="nvarchar" MaxLength="100" />
+    <Property Name="new_value" Type="nvarchar" MaxLength="100" />
+    <Property Name="action_date" Type="datetime" />
+    <Property Name="acc_id" Type="int" />
+    <Property Name="accenumb" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="botanic">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="crop_code" Type="int" />
+    <Property Name="genus_code" Type="int" />
+    <Property Name="species" Type="nvarchar" MaxLength="255" />
+    <Property Name="species_author" Type="nvarchar" MaxLength="255" />
+    <Property Name="species_synonym" Type="nvarchar" MaxLength="255" />
+    <Property Name="subspecies" Type="nvarchar" MaxLength="255" />
+    <Property Name="subspecies_author" Type="nvarchar" MaxLength="255" />
+    <Property Name="grp_variety" Type="nvarchar" MaxLength="255" />
+    <Property Name="grp_variety_author" Type="nvarchar" MaxLength="255" />
+    <Property Name="variety" Type="nvarchar" MaxLength="255" />
+    <Property Name="variety_author" Type="nvarchar" MaxLength="255" />
+    <Property Name="subvariety" Type="nvarchar" MaxLength="255" />
+    <Property Name="subvariety_author" Type="nvarchar" MaxLength="255" />
+    <Property Name="forma" Type="nvarchar" MaxLength="255" />
+    <Property Name="forma_author" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="collsrc">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_rus" Type="nvarchar" MaxLength="80" />
+    <Property Name="name_eng" Type="nvarchar" MaxLength="100" />
+    <Property Name="code_GRIN" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="geography">
+    <Key>
+      <PropertyRef Name="GGP" />
+    </Key>
+    <Property Name="Код" Type="int" Nullable="false" />
+    <Property Name="ORIGCTY" Type="float" />
+    <Property Name="GGP" Type="int" Nullable="false" />
+    <Property Name="GEORUS" Type="nvarchar" MaxLength="255" />
+    <Property Name="FULLGEORUS" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="255" />
+    <Property Name="CENTER_PROV_RUS" Type="nvarchar" MaxLength="255" />
+    <Property Name="CENTER_PROV_ENG" Type="nvarchar" MaxLength="255" />
+    <Property Name="ENG_GRIN" Type="nvarchar" MaxLength="255" />
+    <Property Name="ENG" Type="nvarchar" MaxLength="255" />
+    <Property Name="GEO_ENG" Type="nvarchar" MaxLength="255" />
+    <Property Name="LON" Type="nvarchar" MaxLength="255" />
+    <Property Name="LAT" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="INSTITUT">
+    <Key>
+      <PropertyRef Name="NA" />
+    </Key>
+    <Property Name="NA" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="NAMEINST" Type="nvarchar" MaxLength="255" />
+    <Property Name="NAMEENG" Type="nvarchar" MaxLength="255" />
+    <Property Name="FAO" Type="nvarchar" MaxLength="255" />
+    <Property Name="Дубль" Type="nvarchar" MaxLength="255" />
+    <Property Name="GEOCOD" Type="float" />
+    <Property Name="GEOENGNEW" Type="nvarchar" MaxLength="255" />
+    <Property Name="ADRES" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="255" />
+    <Property Name="TEL" Type="nvarchar" MaxLength="255" />
+    <Property Name="FAX" Type="nvarchar" MaxLength="255" />
+    <Property Name="KATINST" Type="nvarchar" MaxLength="255" />
+    <Property Name="ACRONYM" Type="nvarchar" MaxLength="255" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="KRIS_EXP">
+    <Key>
+      <PropertyRef Name="NUM_EXP" />
+    </Key>
+    <Property Name="NUM_EXP" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ACR" Type="nvarchar" MaxLength="255" />
+    <Property Name="STT" Type="nvarchar" MaxLength="255" />
+    <Property Name="STT_E" Type="nvarchar" MaxLength="255" />
+    <Property Name="REGVU" Type="nvarchar" MaxLength="255" />
+    <Property Name="GEOCOD" Type="float" />
+    <Property Name="COUNT_N" Type="nvarchar" MaxLength="255" />
+    <Property Name="GOD" Type="float" />
+    <Property Name="DAT" Type="nvarchar" MaxLength="255" />
+    <Property Name="NAZV" Type="nvarchar" MaxLength="255" />
+    <Property Name="NOTR" Type="nvarchar" MaxLength="255" />
+    <Property Name="OBL" Type="nvarchar" MaxLength="255" />
+    <Property Name="REG" Type="nvarchar" MaxLength="255" />
+    <Property Name="REG_E1" Type="nvarchar" MaxLength="255" />
+    <Property Name="REG_E2" Type="nvarchar" MaxLength="255" />
+    <Property Name="REG_E3" Type="nvarchar" MaxLength="255" />
+    <Property Name="REG_E4" Type="nvarchar" MaxLength="255" />
+    <Property Name="REG_E5" Type="nvarchar" MaxLength="255" />
+    <Property Name="REG_E6" Type="nvarchar" MaxLength="255" />
+    <Property Name="REG_E7" Type="nvarchar" MaxLength="255" />
+    <Property Name="SUP" Type="nvarchar" MaxLength="255" />
+    <Property Name="PPL" Type="nvarchar" MaxLength="255" />
+    <Property Name="PPL_E" Type="nvarchar" MaxLength="255" />
+    <Property Name="KATEX" Type="nvarchar" MaxLength="255" />
+    <Property Name="SOB" Type="nvarchar" MaxLength="255" />
+    <Property Name="SOB_E1" Type="nvarchar" MaxLength="255" />
+    <Property Name="SOB_E2" Type="nvarchar" MaxLength="255" />
+    <Property Name="NOB" Type="float" />
+    <Property Name="VID" Type="nvarchar" MaxLength="255" />
+    <Property Name="PRM" Type="nvarchar" MaxLength="255" />
+    <Property Name="PRM_E" Type="nvarchar" MaxLength="255" />
+    <Property Name="NP" Type="nvarchar" MaxLength="255" />
+    <Property Name="GP" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="liffom">
+    <Key>
+      <PropertyRef Name="form_code" />
+    </Key>
+    <Property Name="form_code" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="255" />
+    <Property Name="loskutov_code" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="maindb">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="accenumb" Type="nvarchar" MaxLength="50" />
+    <Property Name="collnumb" Type="nvarchar" MaxLength="50" />
+    <Property Name="botanic_code" Type="int" />
+    <Property Name="accename_eng" Type="nvarchar" MaxLength="255" />
+    <Property Name="accename_rus" Type="nvarchar" MaxLength="255" />
+    <Property Name="acqdate" Type="date" />
+    <Property Name="doncty" Type="int" />
+    <Property Name="oricode" Type="int" />
+    <Property Name="collsite_eng" Type="nvarchar" MaxLength="255" />
+    <Property Name="collsite_rus" Type="nvarchar" MaxLength="255" />
+    <Property Name="colldate" Type="date" />
+    <Property Name="liffom" Type="nvarchar" MaxLength="2" />
+    <Property Name="sampstat" Type="int" />
+    <Property Name="dbkey" Type="float" />
+    <Property Name="nintrod" Type="nvarchar" MaxLength="100" />
+    <Property Name="nexped" Type="nvarchar" MaxLength="30" />
+    <Property Name="nother" Type="nvarchar" MaxLength="250" />
+    <Property Name="ndonor" Type="nvarchar" MaxLength="250" />
+    <Property Name="donor" Type="nvarchar" MaxLength="255" />
+    <Property Name="duplsite" Type="nvarchar" MaxLength="255" />
+    <Property Name="storage" Type="int" />
+    <Property Name="pedigree_rus" Type="nvarchar" MaxLength="255" />
+    <Property Name="pedigree_eng" Type="nvarchar" MaxLength="255" />
+    <Property Name="collcode" Type="nvarchar" MaxLength="255" />
+    <Property Name="bredcode" Type="nvarchar" MaxLength="255" />
+    <Property Name="latitude" Type="real" />
+    <Property Name="longitude" Type="real" />
+    <Property Name="elevation" Type="int" />
+    <Property Name="collsrc" Type="int" />
+    <Property Name="expedition" Type="nvarchar" MaxLength="255" />
+    <Property Name="REMARKS" Type="nvarchar(max)" />
+    <Property Name="dostupen" Type="bit" Nullable="false" />
+    <Property Name="date_reseed" Type="date" />
+    <Property Name="owner" Type="int" />
+    <Property Name="owner_str" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="maindb_owner">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="owner_str" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sampstat_full">
+    <Key>
+      <PropertyRef Name="sampstat" />
+    </Key>
+    <Property Name="sampstat" Type="int" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="255" />
+    <Property Name="stat_code" Type="nvarchar" MaxLength="2" />
+    <Property Name="name_eng" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="sd_kind">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sd_status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="service_desk">
+    <Key>
+      <PropertyRef Name="number_request" />
+    </Key>
+    <Property Name="number_request" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="author" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="kind_id" Type="int" />
+    <Property Name="date_begin" Type="datetime" Nullable="false" />
+    <Property Name="date_end" Type="datetime" />
+    <Property Name="status_id" Type="int" Nullable="false" />
+    <Property Name="task" Type="nvarchar" MaxLength="1000" />
+    <Property Name="what_done" Type="nvarchar" MaxLength="1000" />
+    <Property Name="user_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="fio" Type="nvarchar" MaxLength="100" />
+    <Property Name="comment" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="storage">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="int" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="taxonomy_crop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="crop_name_eng" Type="nvarchar" MaxLength="150" />
+    <Property Name="crop_name_rus" Type="nvarchar" MaxLength="150" />
+    <Property Name="alternate_crop_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="crop_authority" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="taxonomy_family">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="family_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="alternate_family_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="family_authority" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="taxonomy_genus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="genus_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="alternate_genus_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="genus_authority" Type="nvarchar" MaxLength="150" />
+    <Property Name="subgenus_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="alternate_subgenus_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="subgenus_authority" Type="nvarchar" MaxLength="150" />
+    <Property Name="section_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="alternate_section_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="section_authority" Type="nvarchar" MaxLength="150" />
+    <Property Name="subsection_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="alternate_subsection_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="subsection_authority" Type="nvarchar" MaxLength="150" />
+    <Property Name="series_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="alternate_series_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="series_authority" Type="nvarchar" MaxLength="150" />
+    <Property Name="subseries_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="alternate_subseries_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="subseries_authority" Type="nvarchar" MaxLength="150" />
+    <Property Name="family_code" Type="int" />
+  </EntityType>
+  <EntityType Name="user_roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="slave" Type="nvarchar" MaxLength="50" />
+    <Property Name="master" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fio" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_botanic_taxonomy_crop">
+    <End Role="taxonomy_crop" Type="Self.taxonomy_crop" Multiplicity="0..1" />
+    <End Role="botanic" Type="Self.botanic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taxonomy_crop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="botanic">
+        <PropertyRef Name="crop_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_botanic_taxonomy_genus">
+    <End Role="taxonomy_genus" Type="Self.taxonomy_genus" Multiplicity="0..1" />
+    <End Role="botanic" Type="Self.botanic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taxonomy_genus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="botanic">
+        <PropertyRef Name="genus_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_botanic">
+    <End Role="botanic" Type="Self.botanic" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="botanic">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="botanic_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_collsrc">
+    <End Role="collsrc" Type="Self.collsrc" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="collsrc">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="collsrc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_geography">
+    <End Role="geography" Type="Self.geography" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="geography">
+        <PropertyRef Name="GGP" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="doncty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_geography1">
+    <End Role="geography" Type="Self.geography" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="geography">
+        <PropertyRef Name="GGP" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="oricode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_INSTITUT">
+    <End Role="INSTITUT" Type="Self.INSTITUT" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INSTITUT">
+        <PropertyRef Name="NA" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="donor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_INSTITUT1">
+    <End Role="INSTITUT" Type="Self.INSTITUT" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INSTITUT">
+        <PropertyRef Name="NA" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="collcode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_INSTITUT2">
+    <End Role="INSTITUT" Type="Self.INSTITUT" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INSTITUT">
+        <PropertyRef Name="NA" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="bredcode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_KRIS_EXP">
+    <End Role="KRIS_EXP" Type="Self.KRIS_EXP" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KRIS_EXP">
+        <PropertyRef Name="NUM_EXP" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="expedition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_liffom">
+    <End Role="liffom" Type="Self.liffom" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="liffom">
+        <PropertyRef Name="form_code" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="liffom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_sampstat_full">
+    <End Role="sampstat_full" Type="Self.sampstat_full" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sampstat_full">
+        <PropertyRef Name="sampstat" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="sampstat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_storage">
+    <End Role="storage" Type="Self.storage" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="storage">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="storage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_service_desk_sd_kind1">
+    <End Role="sd_kind" Type="Self.sd_kind" Multiplicity="0..1" />
+    <End Role="service_desk" Type="Self.service_desk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sd_kind">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="service_desk">
+        <PropertyRef Name="kind_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_service_desk_sd_status">
+    <End Role="sd_status" Type="Self.sd_status" Multiplicity="1" />
+    <End Role="service_desk" Type="Self.service_desk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sd_status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="service_desk">
+        <PropertyRef Name="status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_service_desk_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="service_desk" Type="Self.service_desk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="service_desk">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taxonomy_genus_taxonomy_family">
+    <End Role="taxonomy_family" Type="Self.taxonomy_family" Multiplicity="0..1" />
+    <End Role="taxonomy_genus" Type="Self.taxonomy_genus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taxonomy_family">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="taxonomy_genus">
+        <PropertyRef Name="family_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_roles_master">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="user_roles" Type="Self.user_roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="user_roles">
+        <PropertyRef Name="master" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_roles_slave">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="user_roles" Type="Self.user_roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="user_roles">
+        <PropertyRef Name="slave" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="virdb2ModelStoreContainer">
+    <EntitySet Name="audit" EntityType="Self.audit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="botanic" EntityType="Self.botanic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="collsrc" EntityType="Self.collsrc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="geography" EntityType="Self.geography" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INSTITUT" EntityType="Self.INSTITUT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KRIS_EXP" EntityType="Self.KRIS_EXP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="liffom" EntityType="Self.liffom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="maindb" EntityType="Self.maindb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="maindb_owner" EntityType="Self.maindb_owner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sampstat_full" EntityType="Self.sampstat_full" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sd_kind" EntityType="Self.sd_kind" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sd_status" EntityType="Self.sd_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="service_desk" EntityType="Self.service_desk" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="storage" EntityType="Self.storage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="taxonomy_crop" EntityType="Self.taxonomy_crop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="taxonomy_family" EntityType="Self.taxonomy_family" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="taxonomy_genus" EntityType="Self.taxonomy_genus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_roles" EntityType="Self.user_roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_botanic_taxonomy_crop" Association="Self.FK_botanic_taxonomy_crop">
+      <End Role="taxonomy_crop" EntitySet="taxonomy_crop" />
+      <End Role="botanic" EntitySet="botanic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_botanic_taxonomy_genus" Association="Self.FK_botanic_taxonomy_genus">
+      <End Role="taxonomy_genus" EntitySet="taxonomy_genus" />
+      <End Role="botanic" EntitySet="botanic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_botanic" Association="Self.FK_maindb_botanic">
+      <End Role="botanic" EntitySet="botanic" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_collsrc" Association="Self.FK_maindb_collsrc">
+      <End Role="collsrc" EntitySet="collsrc" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_geography" Association="Self.FK_maindb_geography">
+      <End Role="geography" EntitySet="geography" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_geography1" Association="Self.FK_maindb_geography1">
+      <End Role="geography" EntitySet="geography" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_INSTITUT" Association="Self.FK_maindb_INSTITUT">
+      <End Role="INSTITUT" EntitySet="INSTITUT" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_INSTITUT1" Association="Self.FK_maindb_INSTITUT1">
+      <End Role="INSTITUT" EntitySet="INSTITUT" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_INSTITUT2" Association="Self.FK_maindb_INSTITUT2">
+      <End Role="INSTITUT" EntitySet="INSTITUT" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_KRIS_EXP" Association="Self.FK_maindb_KRIS_EXP">
+      <End Role="KRIS_EXP" EntitySet="KRIS_EXP" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_liffom" Association="Self.FK_maindb_liffom">
+      <End Role="liffom" EntitySet="liffom" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_sampstat_full" Association="Self.FK_maindb_sampstat_full">
+      <End Role="sampstat_full" EntitySet="sampstat_full" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_storage" Association="Self.FK_maindb_storage">
+      <End Role="storage" EntitySet="storage" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_service_desk_sd_kind1" Association="Self.FK_service_desk_sd_kind1">
+      <End Role="sd_kind" EntitySet="sd_kind" />
+      <End Role="service_desk" EntitySet="service_desk" />
+    </AssociationSet>
+    <AssociationSet Name="FK_service_desk_sd_status" Association="Self.FK_service_desk_sd_status">
+      <End Role="sd_status" EntitySet="sd_status" />
+      <End Role="service_desk" EntitySet="service_desk" />
+    </AssociationSet>
+    <AssociationSet Name="FK_service_desk_users" Association="Self.FK_service_desk_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="service_desk" EntitySet="service_desk" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taxonomy_genus_taxonomy_family" Association="Self.FK_taxonomy_genus_taxonomy_family">
+      <End Role="taxonomy_family" EntitySet="taxonomy_family" />
+      <End Role="taxonomy_genus" EntitySet="taxonomy_genus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_roles_master" Association="Self.FK_user_roles_master">
+      <End Role="users" EntitySet="users" />
+      <End Role="user_roles" EntitySet="user_roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_roles_slave" Association="Self.FK_user_roles_slave">
+      <End Role="users" EntitySet="users" />
+      <End Role="user_roles" EntitySet="user_roles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

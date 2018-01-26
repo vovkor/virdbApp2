@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="virdb2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="botanic">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="crop_code" Type="Int32" />
+    <Property Name="genus_code" Type="Int32" />
+    <Property Name="species" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="species_author" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="species_synonym" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="subspecies" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="subspecies_author" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="grp_variety" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="grp_variety_author" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="variety" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="variety_author" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="subvariety" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="subvariety_author" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="forma" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="forma_author" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="taxonomy_crop" Relationship="Self.FK_botanic_taxonomy_crop" FromRole="botanic" ToRole="taxonomy_crop" />
+    <NavigationProperty Name="taxonomy_genus" Relationship="Self.FK_botanic_taxonomy_genus" FromRole="botanic" ToRole="taxonomy_genus" />
+    <NavigationProperty Name="maindb" Relationship="Self.FK_maindb_botanic" FromRole="botanic" ToRole="maindb" />
+  </EntityType>
+  <EntityType Name="collsrc">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name_rus" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="name_eng" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="code_GRIN" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="maindb" Relationship="Self.FK_maindb_collsrc" FromRole="collsrc" ToRole="maindb" />
+  </EntityType>
+  <EntityType Name="geography">
+    <Key>
+      <PropertyRef Name="GGP" />
+    </Key>
+    <Property Name="Код" Type="Int32" Nullable="false" />
+    <Property Name="ORIGCTY" Type="Double" />
+    <Property Name="GGP" Type="Int32" Nullable="false" />
+    <Property Name="GEORUS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FULLGEORUS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CENTER_PROV_RUS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CENTER_PROV_ENG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ENG_GRIN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ENG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GEO_ENG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LON" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LAT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="maindb" Relationship="Self.FK_maindb_geography" FromRole="geography" ToRole="maindb" />
+    <NavigationProperty Name="maindb1" Relationship="Self.FK_maindb_geography1" FromRole="geography" ToRole="maindb" />
+  </EntityType>
+  <EntityType Name="INSTITUT">
+    <Key>
+      <PropertyRef Name="NA" />
+    </Key>
+    <Property Name="NA" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NAMEINST" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NAMEENG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FAO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Дубль" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GEOCOD" Type="Double" />
+    <Property Name="GEOENGNEW" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ADRES" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TEL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FAX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="KATINST" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ACRONYM" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NOTES" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="maindb" Relationship="Self.FK_maindb_INSTITUT" FromRole="INSTITUT" ToRole="maindb" />
+    <NavigationProperty Name="maindb1" Relationship="Self.FK_maindb_INSTITUT1" FromRole="INSTITUT" ToRole="maindb" />
+    <NavigationProperty Name="maindb2" Relationship="Self.FK_maindb_INSTITUT2" FromRole="INSTITUT" ToRole="maindb" />
+  </EntityType>
+  <EntityType Name="KRIS_EXP">
+    <Key>
+      <PropertyRef Name="NUM_EXP" />
+    </Key>
+    <Property Name="NUM_EXP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ACR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STT_E" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REGVU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GEOCOD" Type="Double" />
+    <Property Name="COUNT_N" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GOD" Type="Double" />
+    <Property Name="DAT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NAZV" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NOTR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OBL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REG_E1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REG_E2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REG_E3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REG_E4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REG_E5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REG_E6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REG_E7" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SUP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PPL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PPL_E" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="KATEX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SOB" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SOB_E1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SOB_E2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NOB" Type="Double" />
+    <Property Name="VID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PRM" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PRM_E" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="maindb" Relationship="Self.FK_maindb_KRIS_EXP" FromRole="KRIS_EXP" ToRole="maindb" />
+  </EntityType>
+  <EntityType Name="liffom">
+    <Key>
+      <PropertyRef Name="form_code" />
+    </Key>
+    <Property Name="form_code" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fullname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="loskutov_code" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="maindb" Relationship="Self.FK_maindb_liffom" FromRole="liffom" ToRole="maindb" />
+  </EntityType>
+  <EntityType Name="maindb">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="accenumb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="collnumb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="botanic_code" Type="Int32" />
+    <Property Name="accename_eng" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="accename_rus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="acqdate" Type="DateTime" Precision="0" />
+    <Property Name="doncty" Type="Int32" />
+    <Property Name="oricode" Type="Int32" />
+    <Property Name="collsite_eng" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="collsite_rus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="colldate" Type="DateTime" Precision="0" />
+    <Property Name="liffom" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="sampstat" Type="Int32" />
+    <Property Name="dbkey" Type="Double" />
+    <Property Name="nintrod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="nexped" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="nother" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ndonor" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="donor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="duplsite" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="storage" Type="Int32" />
+    <Property Name="pedigree_rus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="pedigree_eng" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="collcode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="bredcode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="latitude" Type="Single" />
+    <Property Name="longitude" Type="Single" />
+    <Property Name="elevation" Type="Int32" />
+    <Property Name="collsrc" Type="Int32" />
+    <Property Name="expedition" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dostupen" Type="Boolean" Nullable="false" />
+    <Property Name="date_reseed" Type="DateTime" Precision="0" />
+    <Property Name="owner" Type="Int32" />
+    <NavigationProperty Name="botanic" Relationship="Self.FK_maindb_botanic" FromRole="maindb" ToRole="botanic" />
+    <NavigationProperty Name="collsrc1" Relationship="Self.FK_maindb_collsrc" FromRole="maindb" ToRole="collsrc" />
+    <NavigationProperty Name="geography" Relationship="Self.FK_maindb_geography" FromRole="maindb" ToRole="geography" />
+    <NavigationProperty Name="geography1" Relationship="Self.FK_maindb_geography1" FromRole="maindb" ToRole="geography" />
+    <NavigationProperty Name="INSTITUT" Relationship="Self.FK_maindb_INSTITUT" FromRole="maindb" ToRole="INSTITUT" />
+    <NavigationProperty Name="INSTITUT1" Relationship="Self.FK_maindb_INSTITUT1" FromRole="maindb" ToRole="INSTITUT" />
+    <NavigationProperty Name="INSTITUT2" Relationship="Self.FK_maindb_INSTITUT2" FromRole="maindb" ToRole="INSTITUT" />
+    <NavigationProperty Name="KRIS_EXP" Relationship="Self.FK_maindb_KRIS_EXP" FromRole="maindb" ToRole="KRIS_EXP" />
+    <NavigationProperty Name="liffom1" Relationship="Self.FK_maindb_liffom" FromRole="maindb" ToRole="liffom" />
+    <NavigationProperty Name="sampstat_full" Relationship="Self.FK_maindb_sampstat_full" FromRole="maindb" ToRole="sampstat_full" />
+    <NavigationProperty Name="storage1" Relationship="Self.FK_maindb_storage" FromRole="maindb" ToRole="storage" />
+  </EntityType>
+  <EntityType Name="sampstat_full">
+    <Key>
+      <PropertyRef Name="sampstat" />
+    </Key>
+    <Property Name="sampstat" Type="Int32" Nullable="false" />
+    <Property Name="fullname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="stat_code" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="name_eng" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="maindb" Relationship="Self.FK_maindb_sampstat_full" FromRole="sampstat_full" ToRole="maindb" />
+  </EntityType>
+  <EntityType Name="storage">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="Int32" Nullable="false" />
+    <Property Name="fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="maindb" Relationship="Self.FK_maindb_storage" FromRole="storage" ToRole="maindb" />
+  </EntityType>
+  <EntityType Name="taxonomy_crop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="crop_name_eng" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="crop_name_rus" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="alternate_crop_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="crop_authority" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="botanic" Relationship="Self.FK_botanic_taxonomy_crop" FromRole="taxonomy_crop" ToRole="botanic" />
+  </EntityType>
+  <EntityType Name="taxonomy_family">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="family_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="alternate_family_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="family_authority" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="taxonomy_genus" Relationship="Self.FK_taxonomy_genus_taxonomy_family" FromRole="taxonomy_family" ToRole="taxonomy_genus" />
+  </EntityType>
+  <EntityType Name="taxonomy_genus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="genus_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="alternate_genus_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="genus_authority" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="subgenus_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="alternate_subgenus_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="subgenus_authority" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="section_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="alternate_section_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="section_authority" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="subsection_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="alternate_subsection_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="subsection_authority" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="series_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="alternate_series_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="series_authority" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="subseries_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="alternate_subseries_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="subseries_authority" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="family_code" Type="Int32" />
+    <NavigationProperty Name="botanic" Relationship="Self.FK_botanic_taxonomy_genus" FromRole="taxonomy_genus" ToRole="botanic" />
+    <NavigationProperty Name="taxonomy_family" Relationship="Self.FK_taxonomy_genus_taxonomy_family" FromRole="taxonomy_genus" ToRole="taxonomy_family" />
+  </EntityType>
+  <Association Name="FK_botanic_taxonomy_crop">
+    <End Role="taxonomy_crop" Type="Self.taxonomy_crop" Multiplicity="0..1" />
+    <End Role="botanic" Type="Self.botanic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taxonomy_crop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="botanic">
+        <PropertyRef Name="crop_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_botanic_taxonomy_genus">
+    <End Role="taxonomy_genus" Type="Self.taxonomy_genus" Multiplicity="0..1" />
+    <End Role="botanic" Type="Self.botanic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taxonomy_genus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="botanic">
+        <PropertyRef Name="genus_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_botanic">
+    <End Role="botanic" Type="Self.botanic" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="botanic">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="botanic_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_collsrc">
+    <End Role="collsrc" Type="Self.collsrc" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="collsrc">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="collsrc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_geography">
+    <End Role="geography" Type="Self.geography" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="geography">
+        <PropertyRef Name="GGP" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="doncty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_geography1">
+    <End Role="geography" Type="Self.geography" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="geography">
+        <PropertyRef Name="GGP" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="oricode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_INSTITUT">
+    <End Role="INSTITUT" Type="Self.INSTITUT" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INSTITUT">
+        <PropertyRef Name="NA" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="donor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_INSTITUT1">
+    <End Role="INSTITUT" Type="Self.INSTITUT" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INSTITUT">
+        <PropertyRef Name="NA" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="collcode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_INSTITUT2">
+    <End Role="INSTITUT" Type="Self.INSTITUT" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INSTITUT">
+        <PropertyRef Name="NA" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="bredcode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_KRIS_EXP">
+    <End Role="KRIS_EXP" Type="Self.KRIS_EXP" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KRIS_EXP">
+        <PropertyRef Name="NUM_EXP" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="expedition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_liffom">
+    <End Role="liffom" Type="Self.liffom" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="liffom">
+        <PropertyRef Name="form_code" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="liffom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_sampstat_full">
+    <End Role="sampstat_full" Type="Self.sampstat_full" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sampstat_full">
+        <PropertyRef Name="sampstat" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="sampstat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_maindb_storage">
+    <End Role="storage" Type="Self.storage" Multiplicity="0..1" />
+    <End Role="maindb" Type="Self.maindb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="storage">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="maindb">
+        <PropertyRef Name="storage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taxonomy_genus_taxonomy_family">
+    <End Role="taxonomy_family" Type="Self.taxonomy_family" Multiplicity="0..1" />
+    <End Role="taxonomy_genus" Type="Self.taxonomy_genus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taxonomy_family">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="taxonomy_genus">
+        <PropertyRef Name="family_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="botanic" EntityType="Self.botanic" />
+    <EntitySet Name="collsrc" EntityType="Self.collsrc" />
+    <EntitySet Name="geography" EntityType="Self.geography" />
+    <EntitySet Name="INSTITUT" EntityType="Self.INSTITUT" />
+    <EntitySet Name="KRIS_EXP" EntityType="Self.KRIS_EXP" />
+    <EntitySet Name="liffom" EntityType="Self.liffom" />
+    <EntitySet Name="maindb" EntityType="Self.maindb" />
+    <EntitySet Name="sampstat_full" EntityType="Self.sampstat_full" />
+    <EntitySet Name="storage" EntityType="Self.storage" />
+    <EntitySet Name="taxonomy_crop" EntityType="Self.taxonomy_crop" />
+    <EntitySet Name="taxonomy_family" EntityType="Self.taxonomy_family" />
+    <EntitySet Name="taxonomy_genus" EntityType="Self.taxonomy_genus" />
+    <AssociationSet Name="FK_botanic_taxonomy_crop" Association="Self.FK_botanic_taxonomy_crop">
+      <End Role="taxonomy_crop" EntitySet="taxonomy_crop" />
+      <End Role="botanic" EntitySet="botanic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_botanic_taxonomy_genus" Association="Self.FK_botanic_taxonomy_genus">
+      <End Role="taxonomy_genus" EntitySet="taxonomy_genus" />
+      <End Role="botanic" EntitySet="botanic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_botanic" Association="Self.FK_maindb_botanic">
+      <End Role="botanic" EntitySet="botanic" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_collsrc" Association="Self.FK_maindb_collsrc">
+      <End Role="collsrc" EntitySet="collsrc" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_geography" Association="Self.FK_maindb_geography">
+      <End Role="geography" EntitySet="geography" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_geography1" Association="Self.FK_maindb_geography1">
+      <End Role="geography" EntitySet="geography" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_INSTITUT" Association="Self.FK_maindb_INSTITUT">
+      <End Role="INSTITUT" EntitySet="INSTITUT" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_INSTITUT1" Association="Self.FK_maindb_INSTITUT1">
+      <End Role="INSTITUT" EntitySet="INSTITUT" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_INSTITUT2" Association="Self.FK_maindb_INSTITUT2">
+      <End Role="INSTITUT" EntitySet="INSTITUT" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_KRIS_EXP" Association="Self.FK_maindb_KRIS_EXP">
+      <End Role="KRIS_EXP" EntitySet="KRIS_EXP" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_liffom" Association="Self.FK_maindb_liffom">
+      <End Role="liffom" EntitySet="liffom" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_sampstat_full" Association="Self.FK_maindb_sampstat_full">
+      <End Role="sampstat_full" EntitySet="sampstat_full" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_maindb_storage" Association="Self.FK_maindb_storage">
+      <End Role="storage" EntitySet="storage" />
+      <End Role="maindb" EntitySet="maindb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taxonomy_genus_taxonomy_family" Association="Self.FK_taxonomy_genus_taxonomy_family">
+      <End Role="taxonomy_family" EntitySet="taxonomy_family" />
+      <End Role="taxonomy_genus" EntitySet="taxonomy_genus" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

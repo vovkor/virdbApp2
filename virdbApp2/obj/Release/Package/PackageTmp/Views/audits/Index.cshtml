@@ -1,0 +1,76 @@
+﻿@model IEnumerable<virdbApp2.Models.audit>
+
+@{
+    ViewBag.Title = "Audit";
+}
+
+<h3>Audit</h3>
+@*
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.owner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.field_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.old_value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.new_value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.action_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.acc_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accenumb)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.owner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.field_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.old_value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.new_value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Get_action_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.acc_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accenumb)
+        </td>
+
+ @*     <td>
+        @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+        @Html.ActionLink("Details", "Details", new { id=item.id }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+*@
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

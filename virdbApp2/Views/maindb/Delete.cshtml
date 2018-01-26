@@ -1,0 +1,299 @@
+﻿@model virdbApp2.Models.maindb
+@using Microsoft.AspNet.Identity;
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.accenumb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accenumb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.collnumb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.collnumb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.accename_eng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accename_eng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.accename_rus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accename_rus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.acqdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.acqdate)
+        </dd>
+@*
+    <dt>
+        @Html.DisplayNameFor(model => model.collsite_eng)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.collsite_eng)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.collsite_rus)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.collsite_rus)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.colldate)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.colldate)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.dbkey)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.dbkey)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.nintrod)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.nintrod)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.nexped)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.nexped)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.nother)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.nother)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.ndonor)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.ndonor)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.duplsite)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.duplsite)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.pedigree_rus)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.pedigree_rus)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.pedigree_eng)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.pedigree_eng)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.latitude)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.latitude)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.longitude)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.longitude)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.elevation)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.elevation)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.REMARKS)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.REMARKS)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.dostupen)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.dostupen)
+    </dd>
+
+    <dt>
+       @Html.DisplayNameFor(model => model.date_reseed)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.date_reseed)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.owner)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.owner)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.botanic.species)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.botanic.species)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.collsrc1.name_rus)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.collsrc1.name_rus)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.geography.GEORUS)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.geography.GEORUS)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.geography1.GEORUS)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.geography1.GEORUS)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.INSTITUT.NAMEINST)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.INSTITUT.NAMEINST)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.INSTITUT1.NAMEINST)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.INSTITUT1.NAMEINST)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.INSTITUT2.NAMEINST)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.INSTITUT2.NAMEINST)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.KRIS_EXP.ACR)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.KRIS_EXP.ACR)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.liffom1.fullname)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.liffom1.fullname)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.sampstat_full.fullname)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.sampstat_full.fullname)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.storage1.fullname)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.storage1.fullname)
+    </dd>
+*@
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+ 
+        <div class="form-actions no-color">
+            @if (User.Identity.GetUserName().Trim().ToUpper() != "")
+            {
+                <input type="submit" value="Delete" class="btn btn-default" /> 
+             }                                                                   
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
