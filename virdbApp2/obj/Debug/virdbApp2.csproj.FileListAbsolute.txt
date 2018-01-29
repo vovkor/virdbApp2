@@ -183,4 +183,4 @@ C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.Resources.ResourceCh.resourc
 C:\Projects\virdbApp2\virdbApp2\bin\en-Us\virdbApp2.resources.dll
 C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.Resources.Resource.en-Us.resources
 C:\Projects\virdbApp2\virdbApp2\obj\Debug\en-Us\virdbApp2.resources.dll
-C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.App_GlobalResources.Resource.en-US.resources
+C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.csprojResolveAssemblyReference.cache
