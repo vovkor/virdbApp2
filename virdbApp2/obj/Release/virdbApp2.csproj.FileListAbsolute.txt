@@ -118,3 +118,9 @@ C:\Projects\virdbApp2\virdbApp2\obj\Release\virdbApp2.dll
 C:\Projects\virdbApp2\virdbApp2\obj\Release\virdbApp2.pdb
 C:\Projects\virdbApp2\virdbApp2\obj\Release\RdlCompile.cache
 C:\Projects\virdbApp2\virdbApp2\obj\Release\RdlCompile.compiled
+C:\Projects\virdbApp2\virdbApp2\bin\en\virdbApp2.resources.dll
+C:\Projects\virdbApp2\virdbApp2\obj\Release\virdbApp2.Properties.Resources.resources
+C:\Projects\virdbApp2\virdbApp2\obj\Release\virdbApp2.Resources.Resource.resources
+C:\Projects\virdbApp2\virdbApp2\obj\Release\virdbApp2.Resources.Resource.en.resources
+C:\Projects\virdbApp2\virdbApp2\obj\Release\virdbApp2.csproj.GenerateResource.Cache
+C:\Projects\virdbApp2\virdbApp2\obj\Release\en\virdbApp2.resources.dll

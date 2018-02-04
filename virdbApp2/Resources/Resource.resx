@@ -123,4 +123,82 @@
   <data name="AccenumbRequired" xml:space="preserve">
     <value>Номер образца не заполнен</value>
   </data>
+  <data name="ChooseLang" xml:space="preserve">
+    <value>Choose the language</value>
+  </data>
+  <data name="CollectionSize" xml:space="preserve">
+    <value>База данных растительных генетических ресурсов содержит 230 000 образцов</value>
+  </data>
+  <data name="AccessionList" xml:space="preserve">
+    <value>Список образцов</value>
+  </data>
+  <data name="AcqDate" xml:space="preserve">
+    <value>Дата включения</value>
+  </data>
+  <data name="audit" xml:space="preserve">
+    <value>Аудит</value>
+  </data>
+  <data name="contact" xml:space="preserve">
+    <value>Контакты</value>
+  </data>
+  <data name="CountRecords" xml:space="preserve">
+    <value>Найдено записей:</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Добавить новый образец</value>
+  </data>
+  <data name="curators" xml:space="preserve">
+    <value>кураторов коллекций</value>
+  </data>
+  <data name="database" xml:space="preserve">
+    <value>Коллекция</value>
+  </data>
+  <data name="db" xml:space="preserve">
+    <value>РГР БД</value>
+  </data>
+  <data name="information" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Перейти</value>
+  </data>
+  <data name="NameEng" xml:space="preserve">
+    <value>Название (англ.)</value>
+  </data>
+  <data name="NameRus" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="reports" xml:space="preserve">
+    <value>Отчёты</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="spb" xml:space="preserve">
+    <value>Россия, Санкт-Петербург, ВИР</value>
+  </data>
+  <data name="SupInfo" xml:space="preserve">
+    <value>Дополнительную информацию о базе данных можно получить у</value>
+  </data>
+  <data name="vir" xml:space="preserve">
+    <value>ВИР</value>
+  </data>
+  <data name="Crop" xml:space="preserve">
+    <value>Культура</value>
+  </data>
+  <data name="Taxonomy" xml:space="preserve">
+    <value>Таксономия</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Карточка образца</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Изменить</value>
+  </data>
+  <data name="SearchNow" xml:space="preserve">
+    <value>Искать</value>
+  </data>
 </root>

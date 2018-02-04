@@ -177,10 +177,8 @@ C:\Projects\virdbApp2\virdbApp2\obj\Debug\RdlCompile.cache
 C:\Projects\virdbApp2\virdbApp2\obj\Debug\RdlCompile.compiled
 C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.csproj.GenerateResource.Cache
 C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.Properties.Resources.resources
-C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.Resources.ResourceEn.resources
 C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.Resources.Resource.resources
-C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.Resources.ResourceCh.resources
-C:\Projects\virdbApp2\virdbApp2\bin\en-Us\virdbApp2.resources.dll
-C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.Resources.Resource.en-Us.resources
-C:\Projects\virdbApp2\virdbApp2\obj\Debug\en-Us\virdbApp2.resources.dll
+C:\Projects\virdbApp2\virdbApp2\bin\en\virdbApp2.resources.dll
+C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.Resources.Resource.en.resources
+C:\Projects\virdbApp2\virdbApp2\obj\Debug\en\virdbApp2.resources.dll
 C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.csprojResolveAssemblyReference.cache

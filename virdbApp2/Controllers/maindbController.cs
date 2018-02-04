@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity;
 // vovkor для RequiredLabel, чтобы обязательные роля были со звездочками  НАЧАЛО
 using System.Linq.Expressions;
 using System.ComponentModel;
+using virdbApp2.Filters;
 
 public static class RequiredLabel
 {
@@ -44,6 +45,7 @@ public static class RequiredLabel
 // vovkor для RequiredLabel, чтобы обязательные роля были со звездочками  КОНЕЦ
 namespace virdbApp2.Controllers
 {
+    [Culture]
     public class maindbController : Controller
     {
         private virdb2Entities db = new virdb2Entities();

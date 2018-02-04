@@ -3,23 +3,19 @@
 }
 
 <div class="jumbotron">
-    <h1>VIR</h1>
-    <p class="lead">Plant genetic resources database contains 230 000 accessions</p>
-    <p><a href="http://91.151.189.38/virdb/maindb" class="btn btn-primary btn-large">Learn more &raquo;</a></p>    
+    <h1>@Resources.Resource.vir</h1>
+    <p class="lead">@Resources.Resource.CollectionSize</p>
+    <p><a href="http://91.151.189.38/virdb/maindb" class="btn btn-primary btn-large">@Resources.Resource.LearnMore &raquo;</a></p>    
 </div>
 
 <div class="panel-body"> @* Andrei 03.02.2015 *@
     <p>
-        For supplementary database information, please appeal to
-        <a href="http://www.vir.nw.ru/contact.htm" target="db">
-           <strong>curators of collection</strong>
-        </a>.
+        @Resources.Resource.SupInfo  <a href="http://www.vir.nw.ru/contact.htm" target="db"><strong>@Resources.Resource.curators</strong></a>.
     </p>
 </div> @* Andrei 03.02.2015 *@
 
 <div class="row">
-    <a href="@Url.Action("Change", "Home", new {lang = "en"})">English</a>
-    <a href="@Url.Action("Change", "Home", new {lang = "ru"})">Русский</a>
+   
 
         @*
             <div class="col-md-4">

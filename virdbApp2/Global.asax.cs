@@ -22,6 +22,7 @@ namespace virdbApp2
         }
 
         // https://www.youtube.com/watch?v=jUf2T6-aDIY&t=317s
+       /*
         protected void Application_AcquireRequestState(object sender, EventArgs e)
         {
             HttpContext context = HttpContext.Current;
@@ -32,5 +33,6 @@ namespace virdbApp2
             Thread.CurrentThread.CurrentCulture = new CultureInfo(languageSession);
 
         }
+        */
     }
 }

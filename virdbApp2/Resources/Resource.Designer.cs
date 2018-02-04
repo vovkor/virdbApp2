@@ -77,5 +77,239 @@ namespace Resources {
                 return ResourceManager.GetString("AccenumbRequired", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Список образцов.
+        /// </summary>
+        public static string AccessionList {
+            get {
+                return ResourceManager.GetString("AccessionList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Дата включения.
+        /// </summary>
+        public static string AcqDate {
+            get {
+                return ResourceManager.GetString("AcqDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Аудит.
+        /// </summary>
+        public static string audit {
+            get {
+                return ResourceManager.GetString("audit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Choose the language.
+        /// </summary>
+        public static string ChooseLang {
+            get {
+                return ResourceManager.GetString("ChooseLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на База данных растительных генетических ресурсов содержит 230 000 образцов.
+        /// </summary>
+        public static string CollectionSize {
+            get {
+                return ResourceManager.GetString("CollectionSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Контакты.
+        /// </summary>
+        public static string contact {
+            get {
+                return ResourceManager.GetString("contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Найдено записей:.
+        /// </summary>
+        public static string CountRecords {
+            get {
+                return ResourceManager.GetString("CountRecords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Добавить новый образец.
+        /// </summary>
+        public static string CreateNew {
+            get {
+                return ResourceManager.GetString("CreateNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Культура.
+        /// </summary>
+        public static string Crop {
+            get {
+                return ResourceManager.GetString("Crop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на кураторов коллекций.
+        /// </summary>
+        public static string curators {
+            get {
+                return ResourceManager.GetString("curators", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Коллекция.
+        /// </summary>
+        public static string database {
+            get {
+                return ResourceManager.GetString("database", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на РГР БД.
+        /// </summary>
+        public static string db {
+            get {
+                return ResourceManager.GetString("db", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Карточка образца.
+        /// </summary>
+        public static string Details {
+            get {
+                return ResourceManager.GetString("Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Изменить.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Информация.
+        /// </summary>
+        public static string information {
+            get {
+                return ResourceManager.GetString("information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Перейти.
+        /// </summary>
+        public static string LearnMore {
+            get {
+                return ResourceManager.GetString("LearnMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Название (англ.).
+        /// </summary>
+        public static string NameEng {
+            get {
+                return ResourceManager.GetString("NameEng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Название.
+        /// </summary>
+        public static string NameRus {
+            get {
+                return ResourceManager.GetString("NameRus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Отчёты.
+        /// </summary>
+        public static string reports {
+            get {
+                return ResourceManager.GetString("reports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Поиск.
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Искать.
+        /// </summary>
+        public static string SearchNow {
+            get {
+                return ResourceManager.GetString("SearchNow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Россия, Санкт-Петербург, ВИР.
+        /// </summary>
+        public static string spb {
+            get {
+                return ResourceManager.GetString("spb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Дополнительную информацию о базе данных можно получить у.
+        /// </summary>
+        public static string SupInfo {
+            get {
+                return ResourceManager.GetString("SupInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Таксономия.
+        /// </summary>
+        public static string Taxonomy {
+            get {
+                return ResourceManager.GetString("Taxonomy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ВИР.
+        /// </summary>
+        public static string vir {
+            get {
+                return ResourceManager.GetString("vir", resourceCulture);
+            }
+        }
     }
 }

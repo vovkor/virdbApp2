@@ -4,16 +4,17 @@
 @using PagedList.Mvc;
 @using Microsoft.AspNet.Identity;
 
+
 @{
-    ViewBag.Title = "Accession List";
+    ViewBag.Title = @Resources.Resource.AccessionList;
 }
 
-<h3>Accession List</h3>
+<h3>@Resources.Resource.AccessionList</h3>
 <!-- 20.02.2015 VAV -->
 @if (User.Identity.GetUserName() != "" ) 
 {
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink(@Resources.Resource.CreateNew, "Create")
     </p>
 }
 
@@ -22,11 +23,11 @@
     
         <tr>
             <th>
-                Search: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-                <input type="submit" value="Search" />
+                @Resources.Resource.Search : @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                <input type="submit" value=@Resources.Resource.SearchNow />
             </th>
             <th> |
-                @Html.Label("Count records:")
+                @Html.Label(@Resources.Resource.CountRecords)
                 @* @Html.TextBox("countRecords", ViewBag.countRecords as string, new { disabled = "disabled" })  *@
                 @Html.Display("countRecords")
             </th>
@@ -38,23 +39,23 @@
     <tr>
         <th>
             @*  @Html.DisplayNameFor(model => model.accenumb) *@
-            @Html.ActionLink("Accession number", "Index", new { sortOrder = ViewBag.AccenumbSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink(@Resources.Resource.accenumb, "Index", new { sortOrder = ViewBag.AccenumbSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink(@Resources.Resource.NameEng, "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
             @* @Html.DisplayNameFor(model => model.accename_rus) *@ 
-            @Html.ActionLink("Name (RUS)", "Index", new { sortOrder = ViewBag.NameRusSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink(@Resources.Resource.NameRus, "Index", new { sortOrder = ViewBag.NameRusSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            Crop name
+            @Resources.Resource.Crop 
         </th>
         <th>
-            Taxonomy
+            @Resources.Resource.Taxonomy
         </th>
         <th>
-            @Html.ActionLink("Acquisition date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink(@Resources.Resource.AcqDate, "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
  @*     <th>
     @Html.ActionLink("Lat | Long", "Index", new { sortOrder = ViewBag.CoordSortParm, currentFilter = ViewBag.CurrentFilter })
@@ -64,8 +65,10 @@
     @Html.ActionLink("Lat|Long", "Index", new { sortOrder = ViewBag.CoordSortParm, currentFilter = ViewBag.CurrentFilter })
     </th>
 *@       
- 
-        <th></th>
+    
+        <th width="80px"></th>
+    
+        
     </tr>
 
 @foreach (var item in Model) {
@@ -103,16 +106,22 @@
         <!-- 19.02.2015 VAV -->
         @if (User.Identity.GetUserName().Trim().ToUpper() == item.owner_str.Trim().ToUpper())
         {
-            <td>    
-                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            <td>   
+@*
+    @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+    @Html.ActionLink("Details", "Details", new { id=item.id }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+*@
+                @Html.Raw(@Html.ActionLink("[replacetext]", "Edit", new { id = item.id }, new { Class = "action edit", title = @Resources.Resource.Edit }).ToHtmlString().Replace("[replacetext]", "<img src=\"/virdb/Images/edit.png\" />"))
+                @Html.Raw(@Html.ActionLink("[replacetext]", "Delete", new { id = item.id }, new { Class = "action del", title = @Resources.Resource.Delete }).ToHtmlString().Replace("[replacetext]", "<img src=\"/virdb/Images/trash.png\" />"))
+                
             </td>
         }
         else
         {
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.id })
+                @* @Html.ActionLink("Details", "Details", new { id = item.id }) *@
+                @Html.Raw(@Html.ActionLink("[replacetext]", "Details", new { id = item.id }, new { Class = "action details", title = @Resources.Resource.Details }).ToHtmlString().Replace("[replacetext]", "<img src=\"/virdb/Images/details.png\" />"))
             </td>
         }
 

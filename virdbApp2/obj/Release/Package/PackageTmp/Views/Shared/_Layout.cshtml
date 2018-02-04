@@ -19,45 +19,80 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("PGR database", "Index", "Home", null, new { @class = "navbar-brand" })
+                @Html.ActionLink(@Resources.Resource.db, "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Information", "Information", "Home")</li>   @*Andrei 02.03.2015 <li>@Html.ActionLink("About", "About", "Home")</li>*@
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @* https://www.youtube.com/watch?v=oGeAYd3idBc *@
+                    @*<li>@Html.ActionLink("Index", "Index", "Home")</li> *@
+
+                    <li>@Html.ActionLink(@Resources.Resource.information, "Information", "Home")</li>   @*Andrei 02.03.2015 <li>@Html.ActionLink("About", "About", "Home")</li>*@
+                    <li>@Html.ActionLink(@Resources.Resource.contact, "Contact", "Home")</li>
                     <!-- 07.12.2014 VAV -->
                     @*<li>@Html.ActionLink("Database", "Index", "Database")</li>*@
-                    <li>@Html.ActionLink("Database", "Index", "maindb")</li>
+                    <li>@Html.ActionLink(@Resources.Resource.database, "Index", "maindb")</li>
                     @*<li>@Html.ActionLink("Service desk", "Index", "service_desk")</li>*@
                     @if (User.Identity.GetUserName().Length > 2)
                     {
-                       <li>@Html.ActionLink("Audit", "Index", "audits")</li>
-                       
+                        <li>@Html.ActionLink(@Resources.Resource.audit, "Index", "audits")</li>
+
                     }
-                    
+
+
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Отчёты <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Resources.Resource.reports <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Отчёт 1", "ViewSeeds", "RptBoxes")</li>
+                            @*<<li>@Html.ActionLink("Отчёт 1", "ViewSeeds", "RptBoxes")</li>*@
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Resources.Resource.ChooseLang <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("ChangeCulture", "Home", new { lang = "ru" })">Русский</a></li>
+                            <li><a href="@Url.Action("ChangeCulture", "Home", new { lang = "en" })">English</a></li>
 
                         </ul>
                     </li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                
+
+                    @*
+            <div>
+                @using (Html.BeginForm("ChangeCulture", "Home"))
+                {
+                    <select name="lang">
+                        <option disabled selected>@Resources.Resource.ChooseLang</option>
+                        <option value="ru">Русский</option>
+                        <option value="en">English</option>
+                        <option value="de">Deutsch</option>
+                    </select>
+                    <input type="submit" name="submit" value="@Resources.Resource.ChooseLang">
+                }
+            </div>
+                    *@
+
+                    @Html.Partial("_LoginPartial")
+              
+
+</div>
+
+ 
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Russia, Saint-Petersburg, VIR</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
-</html>
+
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - @Resources.Resource.spb</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>
