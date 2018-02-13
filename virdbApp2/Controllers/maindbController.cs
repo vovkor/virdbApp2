@@ -43,6 +43,46 @@ public static class RequiredLabel
 
 }
 // vovkor для RequiredLabel, чтобы обязательные роля были со звездочками  КОНЕЦ
+
+
+// перенести в отдельный файл? Правой кнопкой на проекте -> Добавить -> Класс
+// Dynamic LINQ where clause Динамический запрос
+public class FilterBuilder
+{
+    public FilterBuilder()
+    { }
+    public Expression Build(Expression member, string propertyName, string searchStr1, string searchStrOr1, string searchStrOr11)
+    {
+        var miTL = typeof(String).GetMethod("ToLower", Type.EmptyTypes);
+        Expression condition = null;
+
+        foreach (var part in propertyName.Split('.'))
+        {
+            member = Expression.PropertyOrField(member, part);
+        }
+        member = Expression.Call(member, miTL);
+        condition = Expression.Call(member, typeof(string).GetMethod("Contains"), Expression.Constant(searchStr1.ToLower())); //searchStr1
+
+        if (String.IsNullOrEmpty(searchStrOr1) == false)
+        {
+            condition = Expression.Or(condition,
+                              Expression.Call(member,
+                                              typeof(string).GetMethod("Contains"),
+                                              Expression.Constant(searchStrOr1.ToLower())));
+        }
+
+        if (String.IsNullOrEmpty(searchStrOr11) == false)
+        {
+            condition = Expression.Or(condition,
+                              Expression.Call(member,
+                                              typeof(string).GetMethod("Contains"),
+                                              Expression.Constant(searchStrOr11.ToLower())));
+        }
+        return condition;
+    }
+}
+
+
 namespace virdbApp2.Controllers
 {
     [Culture]
@@ -54,12 +94,98 @@ namespace virdbApp2.Controllers
         // правлю Index
         //public ActionResult Index()
 
-  
-        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
+
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page, int? genusChoice,
+            string searchField1,
+            string searchStr1,
+            string searchStrOr1,
+            string searchStrOr11,
+            string searchField2,
+            string searchStr2,
+            string searchStrOr2,
+            string searchStrOr22,
+            string searchField3,
+            string searchStr3,
+            string searchStrOr3,
+            string searchStrOr33,
+            string searchField4,
+            string searchStr4,
+            string searchStrOr4,
+            string searchStrOr44,
+            string searchField5,
+            string searchStr5,
+            string searchStrOr5,
+            string searchStrOr55
+
+           ) // vovkor добавил аргументы
         {
-            // вставка 1 начало
-            bool dition = false; //Andrei
-           
+
+
+            // Для поиска
+            List<SearchField> SearchFields = new List<SearchField>();
+            SearchFields.Add(new SearchField()
+            {
+                code = "accenumb",
+                name = "Номер образца",
+                exp = "accenumb"
+            });
+            SearchFields.Add(new SearchField()
+            {
+                code = "nameRus",
+                name = "Название",
+                exp = "accename_rus"
+            });
+            SearchFields.Add(new SearchField()
+            {
+                code = "genus",
+                name = "Род",
+                exp = "botanic.taxonomy_genus.genus_name" // ??? проваливаемся через имена таблиц
+            });
+            SearchFields.Add(new SearchField()
+            {
+                code = "spesies",
+                name = "Вид",
+                exp = "botanic.species"
+            });
+            SearchFields.Add(new SearchField()
+            {
+                code = "country",
+                name = "Страна происхождения",
+                exp = "geography.GEORUS"
+            });
+            ViewBag.searchField1 = new SelectList(SearchFields, "code", "name", "accenumb"); // со значением по умолчанию
+            ViewBag.searchField2 = new SelectList(SearchFields, "code", "name", "nameRus");
+            ViewBag.searchField3 = new SelectList(SearchFields, "code", "name", "genus");
+            ViewBag.searchField4 = new SelectList(SearchFields, "code", "name", "spesies");
+            ViewBag.searchField5 = new SelectList(SearchFields, "code", "name", "country");
+
+            if (TempData["strFromEdit"] != null) // пришли из Edit
+            {
+                // чтобы поля поиска не сбрасывались
+                if (TempData["strSearch"] != null) { searchString = TempData["strSearch"].ToString(); }
+                if (TempData["searchField1"] != null) { searchField1 = TempData["searchField1"].ToString(); }
+                if (TempData["searchStr1"] != null) { searchStr1 = TempData["searchStr1"].ToString(); }
+                if (TempData["searchStrOr1"] != null) { searchStrOr1 = TempData["searchStrOr1"].ToString(); }
+                if (TempData["searchStrOr11"] != null) { searchStrOr11 = TempData["searchStrOr11"].ToString(); }
+                if (TempData["searchField2"] != null) { searchField2 = TempData["searchField2"].ToString(); }
+                if (TempData["searchStr2"] != null) { searchStr2 = TempData["searchStr2"].ToString(); }
+                if (TempData["searchStrOr2"] != null) { searchStrOr2 = TempData["searchStrOr2"].ToString(); }
+                if (TempData["searchStrOr22"] != null) { searchStrOr22 = TempData["searchStrOr22"].ToString(); }
+                if (TempData["searchField3"] != null) { searchField3 = TempData["searchField3"].ToString(); }
+                if (TempData["searchStr3"] != null) { searchStr3 = TempData["searchStr3"].ToString(); }
+                if (TempData["searchStrOr3"] != null) { searchStrOr3 = TempData["searchStrOr3"].ToString(); }
+                if (TempData["searchStrOr33"] != null) { searchStrOr33 = TempData["searchStrOr33"].ToString(); }
+                if (TempData["searchField4"] != null) { searchField4 = TempData["searchField4"].ToString(); }
+                if (TempData["searchStr4"] != null) { searchStr4 = TempData["searchStr4"].ToString(); }
+                if (TempData["searchStrOr4"] != null) { searchStrOr4 = TempData["searchStrOr4"].ToString(); }
+                if (TempData["searchStrOr44"] != null) { searchStrOr44 = TempData["searchStrOr44"].ToString(); }
+                if (TempData["searchField5"] != null) { searchField5 = TempData["searchField5"].ToString(); }
+                if (TempData["searchStr5"] != null) { searchStr5 = TempData["searchStr5"].ToString(); }
+                if (TempData["searchStrOr5"] != null) { searchStrOr5 = TempData["searchStrOr5"].ToString(); }
+                if (TempData["searchStrOr55"] != null) { searchStrOr55 = TempData["searchStrOr55"].ToString(); }
+            }
+
+
             // добавил сортировку
             ViewBag.CurrentSort = sortOrder;
             // Зачем String.IsNullOrEmpty()  ???
@@ -69,29 +195,111 @@ namespace virdbApp2.Controllers
             ViewBag.AccenumbSortParm = sortOrder == "accenumb_asc" ? "accenumb_desc" : "accenumb_asc";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.CoordSortParm = sortOrder == "coord_asc" ? "coord_desc" : "coord_asc";
-            
+            ViewBag.CropSortParm = sortOrder == "crop_asc" ? "crop_desc" : "crop_asc";
+
+            // Работа с Родами
+            if (TempData["strGenus"] != null && TempData["strFromEdit"] != null) // пришли из Edit
+            {
+                // Если пришли из другой формы, то genusChoice и page = null. Возьмем их из TempData
+                // Объект TempData похож на данные Session за исключением того, что значения TempData помечаются для удаления, когда они прочитаны
+                // Если вы устанавливаете TempData в методе Index, но в представлении Index не выводите, а выводите, к примеру, в представлении Contact, то вы можете там вывести также сколько угодно раз, но в других представлениях также уже нельзя будет получить это значение, так как оно уже получено.
+                genusChoice = Convert.ToInt32(TempData["strGenus"].ToString()); // 
+                ViewBag.genusChoice = new SelectList(db.taxonomy_genus.OrderBy(x => x.genus_name), "id", "genus_name", TempData["strGenus"]);
+            }
+            else
+            {
+                if (genusChoice == null)
+                {
+                    // Если null, то выбираем значение по умолчанию с id==1. Если надо выбрать все записи, в таблице есть запись с id == 0 и N3 == пусто
+                    ViewBag.genusChoice = new SelectList(db.taxonomy_genus.OrderBy(x => x.genus_name), "id", "genus_name", 1); // значение по умолчанию 1 db.GerbRods.Where(g => g.id.Equals(1)).First().id
+                    genusChoice = 1;
+                }
+                else
+                {
+                    ViewBag.genusChoice = new SelectList(db.taxonomy_genus.OrderBy(x => x.genus_name), "id", "genus_name", genusChoice);
+                }
+
+            }
+
+            // Получается, что genusChoice и ViewBag.genusChoice - это разные переменные
+            // В genusChoice приходит выбранный в выпадающем списке ID genus. 
+            // Пользователь выбирает в @Html.DropDownList("genusChoice"), это значение принимает контроллер, 
+            // потому что Index имеет аргумент genusChoice. Дальше genusChoice использую в запросе .Where(g => g.N1______ == genusChoice
+            // Чтобы заполнить выпадающий список, присваиваю ViewBag.genusChoice =  new SelectList()
+
+            // При нажатии на номер страницы во view (@Html.PagedListPager), надо передать текущий genus, сделаю это через ViewBag.currentGenus
+
+            ViewBag.currentGenus = genusChoice;
+            TempData["strGenus"] = genusChoice;
+
+            // Если пришли из другой формы, то genusChoice и page = null. Возьмем их из TempData
+            if (TempData["page"] != null && TempData["strFromEdit"] != null) // пришли из Edit
+            {
+                page = Convert.ToInt32(TempData["page"].ToString());
+            }
+            TempData["page"] = page;
+
+
             // для PagedList
             if (searchString != null)
             {
-                page = 1;
-                dition = true; //Andrei
-
-            }
+                //page = 1;
+             }
             else
             {
                 searchString = currentFilter;
             }
 
+            // чтобы поля поиска не сбрасывались
             ViewBag.CurrentFilter = searchString;
-            // вставка 1 конец
+
+            if (searchStr1 != null)
+            {
+                ViewBag.searchField1 = new SelectList(SearchFields, "code", "name", SearchFields.Where(g => g.code.Contains(searchField1)).First().code); // со значением по умолчанию
+                ViewBag.searchStr1 = searchStr1;
+                ViewBag.searchStrOr1 = searchStrOr1;
+                ViewBag.searchStrOr11 = searchStrOr11;
+            }
+            if (searchStr2 != null)
+            {
+                ViewBag.searchField2 = new SelectList(SearchFields, "code", "name", SearchFields.Where(g => g.code.Equals(searchField2)).First().code);
+                ViewBag.searchStr2 = searchStr2;
+                ViewBag.searchStrOr2 = searchStrOr2;
+                ViewBag.searchStrOr22 = searchStrOr22;
+            }
+            if (searchStr3 != null)
+            {
+                ViewBag.searchField3 = new SelectList(SearchFields, "code", "name", SearchFields.Where(g => g.code.Equals(searchField3)).First().code);
+                ViewBag.searchStr3 = searchStr3;
+                ViewBag.searchStrOr3 = searchStrOr3;
+                ViewBag.searchStrOr33 = searchStrOr33;
+            }
+            if (searchStr4 != null)
+            {
+                ViewBag.searchField4 = new SelectList(SearchFields, "code", "name", SearchFields.Where(g => g.code.Equals(searchField4)).First().code);
+                ViewBag.searchStr4 = searchStr4;
+                ViewBag.searchStrOr4 = searchStrOr4;
+                ViewBag.searchStrOr44 = searchStrOr44;
+            }
+            if (searchStr5 != null)
+            {
+                ViewBag.searchField5 = new SelectList(SearchFields, "code", "name", SearchFields.Where(g => g.code.Equals(searchField5)).First().code);
+                ViewBag.searchStr5 = searchStr5;
+                ViewBag.searchStrOr5 = searchStrOr5;
+                ViewBag.searchStrOr55 = searchStrOr55;
+            }
+
+            
             // считаю количество записей в запросе vovkor 21.02.2015
-            ViewBag.countRecords = db.maindb.Include(m => m.botanic).Include(m => m.collsrc1).Include(m => m.geography).Include(m => m.geography1).Include(m => m.INSTITUT).Include(m => m.INSTITUT1).Include(m => m.INSTITUT2).Include(m => m.KRIS_EXP).Include(m => m.liffom1).Include(m => m.sampstat_full).Include(m => m.storage1).Count();
+            //ViewBag.countRecords = db.maindb.Include(m => m.botanic).Include(m => m.collsrc1).Include(m => m.geography).Include(m => m.geography1).Include(m => m.INSTITUT).Include(m => m.INSTITUT1).Include(m => m.INSTITUT2).Include(m => m.KRIS_EXP).Include(m => m.liffom1).Include(m => m.sampstat_full).Include(m => m.storage1).Count();
             
             // выбираем первые 200 записей ?
-            var maindb = db.maindb.Include(m => m.botanic).Include(m => m.collsrc1).Include(m => m.geography).Include(m => m.geography1).Include(m => m.INSTITUT).Include(m => m.INSTITUT1).Include(m => m.INSTITUT2).Include(m => m.KRIS_EXP).Include(m => m.liffom1).Include(m => m.sampstat_full).Include(m => m.storage1);//.Take(200);
+            var maindb = db.maindb.Include(m => m.botanic).Include(m => m.collsrc1).Include(m => m.geography).Include(m => m.geography1).Include(m => m.INSTITUT).Include(m => m.INSTITUT1).Include(m => m.INSTITUT2).Include(m => m.KRIS_EXP).Include(m => m.liffom1).Include(m => m.sampstat_full).Include(m => m.storage1)
+                .Where(m => m.botanic.taxonomy_genus.id == genusChoice || genusChoice == null || genusChoice == 1); // genusChoice //.Take(200);
+            
             //  VAV 20.02.2015:
             var t_usr = User.Identity.GetUserName();
-            if (t_usr != "") // может использовать HasValue или String.IsNullOrEmpty ?
+            if (t_usr != "") // может использовать HasValue или String.IsNullOrEmpty ?  == надо заменить на Equals    if(str != null && srt.length()!=0)
             {
                 // считаю количество записей в запросе vovkor 21.02.2015    
                 ViewBag.countRecords = maindb.Where(m => m.owner_str.Equals(t_usr)).Count();
@@ -100,30 +308,38 @@ namespace virdbApp2.Controllers
             
           
             // поиск
+            var search1 = "";
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                if (dition) //Andrei поиск - простой поиск - разбиваем строку и проводим поиск
-                {
+                TempData["strSearch"] = searchString; // запомню поисковую строку
+
                     string[] split2 = searchString.Split(new Char[] { ' ' });
                     foreach (string s in split2)
                     {
                         if (s.Trim() != "")
+                        {
+                            search1 = s.ToUpper().Trim();
+                            // gerbs это IQueryable, все where суммируются, запрос оптимизируется, и только потом происходит выборка из базы данных, в отличие от IEnumerable
+                            // IQueryable отправляет только отфильтрованные данные клиенту
+                            // интерфейс IQueryable наследуется от IEnumerable
+                            // В лямбда-выражениях используется лямбда-оператор =>, который читается как «переходит в»
+                            // каждый WHERE добавляет результат к предыдущему 
                             maindb = maindb.Where(
-                                                    m => (m.accenumb.ToUpper().Contains(s.ToUpper())
-                                                        || m.accename_eng.ToUpper().Contains(s.ToUpper())
-                                                        || m.accename_rus.ToUpper().Contains(s.ToUpper())
-                                                        || m.acqdate.ToString().Contains(s)
-                                                        || m.botanic.taxonomy_crop.crop_name_eng.ToUpper().Contains(s.ToUpper())
-                                                        || m.botanic.taxonomy_crop.crop_name_rus.ToUpper().Contains(s.ToUpper())
-                                                        || m.botanic.taxonomy_genus.taxonomy_family.family_name.ToUpper().Contains(s.ToUpper())
-                                                        || m.botanic.taxonomy_genus.genus_name.ToUpper().Contains(s.ToUpper())
-                                                        || m.botanic.species.ToUpper().Contains(s.ToUpper())
-                                                        || m.botanic.species.ToUpper().Contains(s.ToUpper())
-                                                        || m.collsite_eng.ToUpper().Contains(s.ToUpper())
-                                                        || m.collsite_rus.ToUpper().Contains(s.ToUpper())
-                                                        || m.geography.GEO_ENG.ToUpper().Contains(s.ToUpper())
-                                                        || m.geography.GEORUS.ToUpper().Contains(s.ToUpper())
+                                                    m => (m.accenumb.ToUpper().Contains(search1)
+                                                        || m.accename_eng.ToUpper().Contains(search1)
+                                                        || m.accename_rus.ToUpper().Contains(search1)
+                                                        || m.acqdate.ToString().Contains(search1)
+                                                        || m.botanic.taxonomy_crop.crop_name_eng.ToUpper().Contains(search1)
+                                                        || m.botanic.taxonomy_crop.crop_name_rus.ToUpper().Contains(search1)
+                                                        || m.botanic.taxonomy_genus.taxonomy_family.family_name.ToUpper().Contains(search1)
+                                                        || m.botanic.taxonomy_genus.genus_name.ToUpper().Contains(search1)
+                                                        || m.botanic.species.ToUpper().Contains(search1)
+                                                        || m.botanic.species.ToUpper().Contains(search1)
+                                                        || m.collsite_eng.ToUpper().Contains(search1)
+                                                        || m.collsite_rus.ToUpper().Contains(search1)
+                                                        || m.geography.GEO_ENG.ToUpper().Contains(search1)
+                                                        || m.geography.GEORUS.ToUpper().Contains(search1)
                                                         )
                                                         //  VAV 21.02.2015 - если авторизован, то фильтруем по пользователю:
                                                     && (((t_usr != "") && m.owner_str.Equals(t_usr))
@@ -131,37 +347,117 @@ namespace virdbApp2.Controllers
                                                         )
 
                                                    );
+                        }
                     }
-
-                }
-                else
-                {
-                    maindb = maindb.Where(
-                                            m => (m.accenumb.ToUpper().Contains(searchString.ToUpper())
-                                                || m.accename_eng.ToUpper().Contains(searchString.ToUpper())
-                                                || m.accename_rus.ToUpper().Contains(searchString.ToUpper())
-                                                || m.acqdate.ToString().Contains(searchString)
-                                                || m.botanic.taxonomy_crop.crop_name_eng.ToUpper().Contains(searchString.ToUpper())
-                                                || m.botanic.taxonomy_crop.crop_name_rus.ToUpper().Contains(searchString.ToUpper())
-                                                || m.botanic.taxonomy_genus.taxonomy_family.family_name.ToUpper().Contains(searchString.ToUpper())
-                                                || m.botanic.taxonomy_genus.genus_name.ToUpper().Contains(searchString.ToUpper())
-                                                || m.botanic.species.ToUpper().Contains(searchString.ToUpper())
-                                                || m.collsite_eng.ToUpper().Contains(searchString.ToUpper())
-                                                || m.collsite_rus.ToUpper().Contains(searchString.ToUpper())
-                                                || m.geography.GEO_ENG.ToUpper().Contains(searchString.ToUpper())
-                                                || m.geography.GEORUS.ToUpper().Contains(searchString.ToUpper())
-                                                )
-                                                //  VAV 21.02.2015 - если авторизован, то фильтруем по пользователю:
-                                            && (((t_usr != "") && m.owner_str.Equals(t_usr))
-                                                || (t_usr == "")
-                                                )
-
-                                          );
-                } //Andrei конец поиска
-                ViewBag.countRecords = maindb.Count();
+               
             }
 
 
+
+
+            //Если разработчику нужен весь набор возвращаемых данных, то лучше использовать IEnumerable, предоставляющий максимальную скорость. 
+            //Если же нам не нужен весь набор, а то только некоторые отфильтрованные данные, то лучше применять IQueryable. 
+
+            // выпадающие списки
+
+            // Build Where Clause Dynamically in Linq
+            //searchStr1 = "1"; // для тестов
+            //searchStr2 = "2"; // для тестов
+
+            var miTL = typeof(String).GetMethod("ToLower", Type.EmptyTypes); // можно убрать
+            var param = Expression.Parameter(typeof(maindb), "m");
+            Expression member = param;
+
+            Expression condition = null;
+            if (String.IsNullOrEmpty(searchStr1) == false)
+            {
+                var propertyName = SearchFields.Where(g => g.code.Contains(searchField1.Trim())).First().exp.Trim(); // "GerbRod.N3"
+
+                FilterBuilder fb = new FilterBuilder();
+                condition = fb.Build(member, propertyName, searchStr1, searchStrOr1, searchStrOr11);
+                var l = Expression.Lambda<Func<maindb, bool>>(condition, param);  //m => m.GerbRod.N3.ToLower().Contains("1") OR  m.GerbRod.N3.ToLower().Contains("2")
+                //Expression<Func<gerb, bool>> 
+                //l.Compile(); // вернёт тип Func<> 
+
+                // Если where принимает аргумент типа Func<>, возвращает тип IEnumerable, а gerbs у нас IQueyable поэтому надо передавать Expression Func<>
+                maindb = maindb.Where(l); // если нужен тип IEnumerable, то gerbs.Where(l.Compile());
+                //gerbs = gerbs.Where(l.Compile()); // так не компилируется 
+
+                TempData["searchField1"] = searchField1;
+                TempData["searchStr1"] = searchStr1; // запомню поисковую строку
+                TempData["searchStrOr1"] = searchStrOr1; // запомню поисковую строку
+                TempData["searchStrOr11"] = searchStrOr11; // запомню поисковую строку
+
+            }
+
+            condition = null;
+            if (String.IsNullOrEmpty(searchStr2) == false)
+            {
+                var propertyName = SearchFields.Where(g => g.code.Contains(searchField2.Trim())).First().exp.Trim(); // "GerbRod.N3"
+
+                FilterBuilder fb = new FilterBuilder();
+                condition = fb.Build(member, propertyName, searchStr2, searchStrOr2, searchStrOr22);
+                var l = Expression.Lambda<Func<maindb, bool>>(condition, param);
+                maindb = maindb.Where(l); // если нужен тип IEnumerable, то gerbs.Where(l.Compile());
+
+                TempData["searchField2"] = searchField2;
+                TempData["searchStr2"] = searchStr2; // запомню поисковую строку
+                TempData["searchStrOr2"] = searchStrOr2; // запомню поисковую строку
+                TempData["searchStrOr22"] = searchStrOr22; // запомню поисковую строку
+            }
+
+            condition = null;
+            if (String.IsNullOrEmpty(searchStr3) == false)
+            {
+                var propertyName = SearchFields.Where(g => g.code.Contains(searchField3.Trim())).First().exp.Trim(); // "GerbRod.N3"
+
+                FilterBuilder fb = new FilterBuilder();
+                condition = fb.Build(member, propertyName, searchStr3, searchStrOr3, searchStrOr33);
+                var l = Expression.Lambda<Func<maindb, bool>>(condition, param);
+                maindb = maindb.Where(l); // если нужен тип IEnumerable, то gerbs.Where(l.Compile());
+
+                TempData["searchField3"] = searchField3;
+                TempData["searchStr3"] = searchStr3; // запомню поисковую строку
+                TempData["searchStrOr3"] = searchStrOr3; // запомню поисковую строку
+                TempData["searchStrOr33"] = searchStrOr33; // запомню поисковую строку
+            }
+
+            condition = null;
+            if (String.IsNullOrEmpty(searchStr4) == false)
+            {
+                var propertyName = SearchFields.Where(g => g.code.Contains(searchField4.Trim())).First().exp.Trim(); // "GerbRod.N3"
+
+                FilterBuilder fb = new FilterBuilder();
+                condition = fb.Build(member, propertyName, searchStr4, searchStrOr4, searchStrOr44);
+                var l = Expression.Lambda<Func<maindb, bool>>(condition, param);
+                maindb = maindb.Where(l); // если нужен тип IEnumerable, то gerbs.Where(l.Compile());
+
+                TempData["searchField4"] = searchField4;
+                TempData["searchStr4"] = searchStr4; // запомню поисковую строку
+                TempData["searchStrOr4"] = searchStrOr4; // запомню поисковую строку
+                TempData["searchStrOr44"] = searchStrOr44; // запомню поисковую строку
+
+            }
+
+            condition = null;
+            if (String.IsNullOrEmpty(searchStr5) == false)
+            {
+                var propertyName = SearchFields.Where(g => g.code.Contains(searchField5.Trim())).First().exp.Trim(); // "GerbRod.N3"
+
+                FilterBuilder fb = new FilterBuilder();
+                condition = fb.Build(member, propertyName, searchStr5, searchStrOr5, searchStrOr55);
+                var l = Expression.Lambda<Func<maindb, bool>>(condition, param);
+                maindb = maindb.Where(l); // если нужен тип IEnumerable, то gerbs.Where(l.Compile());
+
+                TempData["searchField5"] = searchField5;
+                TempData["searchStr5"] = searchStr5; // запомню поисковую строку
+                TempData["searchStrOr5"] = searchStrOr5; // запомню поисковую строку
+                TempData["searchStrOr55"] = searchStrOr55; // запомню поисковую строку
+
+            } 
+
+
+            ViewBag.countRecords = maindb.Count();
             switch (sortOrder)
             {
                 case "name_desc":
@@ -188,6 +484,13 @@ namespace virdbApp2.Controllers
                     break;
                 case "coord_asc":
                     maindb = maindb.OrderBy(m => m.latitude);
+                    break;
+
+                case "crop_desc":
+                    maindb = maindb.OrderByDescending(m => m.botanic.taxonomy_crop.crop_name_eng);
+                    break;
+                case "crop_asc":
+                    maindb = maindb.OrderBy(m => m.botanic.taxonomy_crop.crop_name_eng);
                     break;
 
                 case "Date":

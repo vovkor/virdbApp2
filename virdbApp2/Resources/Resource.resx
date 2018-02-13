@@ -201,4 +201,103 @@
   <data name="SearchNow" xml:space="preserve">
     <value>Искать</value>
   </data>
+  <data name="AcqDateRequired" xml:space="preserve">
+    <value>Заполните поле "Дата включения в каталог"</value>
+  </data>
+  <data name="bredcode" xml:space="preserve">
+    <value>Институт-селекционер</value>
+  </data>
+  <data name="collcode" xml:space="preserve">
+    <value>Институт, производивший сбор</value>
+  </data>
+  <data name="colldate" xml:space="preserve">
+    <value>Дата сбора образца</value>
+  </data>
+  <data name="CollectingNumber" xml:space="preserve">
+    <value>Номер сбора</value>
+  </data>
+  <data name="date_reseed" xml:space="preserve">
+    <value>Дата пересева</value>
+  </data>
+  <data name="doncty" xml:space="preserve">
+    <value>Страна-донор</value>
+  </data>
+  <data name="donor" xml:space="preserve">
+    <value>Институт-донор</value>
+  </data>
+  <data name="expedition" xml:space="preserve">
+    <value>Экспедиция</value>
+  </data>
+  <data name="NameEngRequired" xml:space="preserve">
+    <value>Заполните поле "Название (англ.)"</value>
+  </data>
+  <data name="NameRusRequired" xml:space="preserve">
+    <value>Заполните поле "Название"</value>
+  </data>
+  <data name="oricode" xml:space="preserve">
+    <value>Страна происхождения</value>
+  </data>
+  <data name="TaxonomyRequired" xml:space="preserve">
+    <value>Заполните поле "Таксономия"</value>
+  </data>
+  <data name="collsite_eng" xml:space="preserve">
+    <value>Место сбора (англ.)</value>
+  </data>
+  <data name="collsite_rus" xml:space="preserve">
+    <value>Место сбора</value>
+  </data>
+  <data name="collsrc" xml:space="preserve">
+    <value>Источник сбора/получения</value>
+  </data>
+  <data name="liffom" xml:space="preserve">
+    <value>Тип развития</value>
+  </data>
+  <data name="sampstat" xml:space="preserve">
+    <value>Биологический статус</value>
+  </data>
+  <data name="storage" xml:space="preserve">
+    <value>Тип хранения</value>
+  </data>
+  <data name="Back2List" xml:space="preserve">
+    <value>Назад к списку</value>
+  </data>
+  <data name="dostupen" xml:space="preserve">
+    <value>Доступность</value>
+  </data>
+  <data name="duplsite" xml:space="preserve">
+    <value>Местонахождение страховых дублетов</value>
+  </data>
+  <data name="elevation" xml:space="preserve">
+    <value>Высота места сбора</value>
+  </data>
+  <data name="latitude" xml:space="preserve">
+    <value>Широта места сбора</value>
+  </data>
+  <data name="longitude" xml:space="preserve">
+    <value>Долгота места сбора</value>
+  </data>
+  <data name="ndonor" xml:space="preserve">
+    <value>Номер образца, присвоенный донором</value>
+  </data>
+  <data name="nexped" xml:space="preserve">
+    <value>Экспедиционный номер</value>
+  </data>
+  <data name="nintrod" xml:space="preserve">
+    <value>Интродукционный номер</value>
+  </data>
+  <data name="nother" xml:space="preserve">
+    <value>Другие идентификации (номера), связанные с образцом</value>
+  </data>
+  <data name="owner_str" xml:space="preserve">
+    <value>Владелец</value>
+  </data>
+  <data name="pedigree_eng" xml:space="preserve">
+    <value>Генеалогия (англ.)</value>
+  </data>
+  <data name="pedigree_rus" xml:space="preserve">
+    <value>Генеалогия</value>
+  </data>
+  <data name="remarks" xml:space="preserve">
+    <value>Примечания</value>
+  </data>
 </root>

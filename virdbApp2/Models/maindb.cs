@@ -26,89 +26,136 @@ namespace virdbApp2.Models
         //[Display(Name = "Accession number"), Required(ErrorMessage = "You have to fill the Accession number field")]
         public string accenumb { get; set; }
 
-        [Display(Name = "Collecting number")]
+        [Display(Name = "CollectingNumber", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Collecting number")]
         public string collnumb { get; set; }
 
-        [Display(Name = "Taxonomy"), Required(ErrorMessage = "You have to fill the Taxonomy field")]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource), ErrorMessageResourceName = "TaxonomyRequired")]
+        [Display(Name = "Taxonomy", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Taxonomy"), Required(ErrorMessage = "You have to fill the Taxonomy field")]
         public Nullable<int> botanic_code { get; set; }
 
-        [Display(Name = "Plant name (lat)"), Required(ErrorMessage = "You have to fill the 'Plant name (lat)' field")]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource), ErrorMessageResourceName = "NameEngRequired")]
+        [Display(Name = "NameEng", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Plant name (lat)"), Required(ErrorMessage = "You have to fill the 'Plant name (lat)' field")]
         public string accename_eng { get; set; }
-        [Display(Name = "Plant name (rus)"), Required(ErrorMessage = "You have to fill the 'Plant name (rus)' field")]
+
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource), ErrorMessageResourceName = "NameRusRequired")]
+        [Display(Name = "NameRus", ResourceType = typeof(Resources.Resource))]        
+        //[Display(Name = "Plant name (rus)"), Required(ErrorMessage = "You have to fill the 'Plant name (rus)' field")]
         public string accename_rus { get; set; } // Name (RUS)
 
-        [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true), Required(ErrorMessage = "You have to fill the Acquisition date field")]
+        //[DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true), Required(ErrorMessage = "You have to fill the Acquisition date field")]
         [DataType(DataType.Date)]
-        [Display(Name = "Acquisition date")]
+        [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true),Required(ErrorMessageResourceType = typeof(Resources.Resource), ErrorMessageResourceName = "AcqDateRequired")]
+        [Display(Name = "AcqDate", ResourceType = typeof(Resources.Resource))]    
+        //[Display(Name = "Acquisition date")]
         public Nullable<System.DateTime> acqdate { get; set; }
+
         public string GetAcqDate
         {
             get { return acqdate != null ? acqdate.Value.ToString("yyyy") : String.Empty; }
         }
         
         [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)] // MM - заглавные - это месяц
-        [Display(Name = "Collecting date")]
+        [Display(Name = "colldate", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Collecting date")]
         public Nullable<System.DateTime> colldate { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Дата пересева")]
+        [Display(Name = "date_reseed", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Дата пересева")]
         public Nullable<System.DateTime> date_reseed { get; set; }
 
-
-        [Display(Name = "Collecting institute")]
+        [Display(Name = "collcode", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Collecting institute")]
         public string collcode { get; set; }
-        [Display(Name = "Breeding institute")]
+
+        [Display(Name = "bredcode", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Breeding institute")]
         public string bredcode { get; set; }
-        [Display(Name = "Donor country")]
+
+        [Display(Name = "doncty", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Donor country")]
         public Nullable<int> doncty { get; set; }
-        [Display(Name = "Donor institute")]
+
+        [Display(Name = "donor", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Donor institute")]
         public string donor { get; set; }
 
-        [Display(Name = "Expedition")]
+        [Display(Name = "expedition", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Expedition")]
         public string expedition { get; set; }
 
-
-        [Display(Name = "Country of origin")]
+        [Display(Name = "oricode", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Country of origin")]
         public Nullable<int> oricode { get; set; }
 
-        [Display(Name = "Location of collection site (eng)")]
+        [Display(Name = "collsite_eng", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Location of collection site (eng)")]
         public string collsite_eng { get; set; }
-        [Display(Name = "Location of collection site (rus)")]
+
+        [Display(Name = "collsite_rus", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Location of collection site (rus)")]
         public string collsite_rus { get; set; }
 
-        [Display(Name = "Form of life")]
+        [Display(Name = "liffom", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Form of life")]
         public string liffom { get; set; }
-        [Display(Name = "Biological status of accession")]
+
+        [Display(Name = "sampstat", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Biological status of accession")]
         public Nullable<int> sampstat { get; set; }
-        [Display(Name = "Collection/acquisition source")]
+
+        [Display(Name = "collsrc", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Collection/acquisition source")]
         public Nullable<int> collsrc { get; set; }
-        [Display(Name = "Type of gerplasm storage")]
+
+        [Display(Name = "storage", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Type of gerplasm storage")]
         public Nullable<int> storage { get; set; }
 
         [Display(Name = "Уникальный код ВИР")] //пока не использую
         public Nullable<double> dbkey { get; set; }
 
-        [Display(Name = "Introduction number")]
+
+
+
+        [Display(Name = "nintrod", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Introduction number")]
         public string nintrod { get; set; }
-        [Display(Name = "Expedition number")]
+
+        [Display(Name = "nexped", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Expedition number")]
         public string nexped { get; set; }
-        [Display(Name = "Other identification numbers")]
+
+        [Display(Name = "nother", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Other identification numbers")]
         public string nother { get; set; }
-        [Display(Name = "Donor accession number")]
+
+        [Display(Name = "ndonor", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Donor accession number")]
         public string ndonor { get; set; }
 
-        [Display(Name = "Location of safety duplicates")]
+        [Display(Name = "duplsite", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Location of safety duplicates")]
         public string duplsite { get; set; }
 
-        [Display(Name = "Ancestral data (rus)")]
+        [Display(Name = "pedigree_rus", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Ancestral data (rus)")]
         public string pedigree_rus { get; set; }
-        [Display(Name = "Ancestral data (eng)")]
+
+        [Display(Name = "pedigree_eng", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Ancestral data (eng)")]
         public string pedigree_eng { get; set; }
 
+        [Display(Name = "latitude", ResourceType = typeof(Resources.Resource))]
         //[RegularExpression("\\d{0-9}", ErrorMessage = "Пожалуйста вводите не более 12 цифр в поле телефона")]
-        [Display(Name = "Latitude")]
+        //[Display(Name = "Latitude")]
         public Nullable<float> latitude { get; set; }
-        [Display(Name = "Longitude")]
+
+        [Display(Name = "longitude", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Longitude")]
         public Nullable<float> longitude { get; set; }
 
         public string LatLong_calc
@@ -116,17 +163,23 @@ namespace virdbApp2.Models
             get { return latitude != null && longitude != null ? latitude.Value.ToString("0.00") + " | " + longitude.Value.ToString("0.00") : String.Empty; }
         }
 
-        [Display(Name = "Elevation")]
+        [Display(Name = "elevation", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Elevation")]
         public Nullable<int> elevation { get; set; }
 
-        [Display(Name = "Remarks")]
+        [Display(Name = "remarks", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Remarks")]
         public string REMARKS { get; set; }
-        [Display(Name = "Доступность")]
+
+        [Display(Name = "dostupen", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Доступность")]
         public bool dostupen { get; set; }
+
         [Display(Name = "Владелец")]
         public Nullable<int> owner { get; set; }
 
-        [Display(Name = "Владелец")]
+        [Display(Name = "owner_str", ResourceType = typeof(Resources.Resource))]
+        //[Display(Name = "Владелец")]
         public string owner_str { get; set; }
 
         public virtual botanic botanic { get; set; }
@@ -140,5 +193,11 @@ namespace virdbApp2.Models
         public virtual liffom liffom1 { get; set; }
         public virtual sampstat_full sampstat_full { get; set; }
         public virtual storage storage1 { get; set; }
+    }
+    public class SearchField
+    {
+        public string code { get; set; } 
+        public string name { get; set; }
+        public string exp { get; set; } 
     }
 }

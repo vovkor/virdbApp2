@@ -2,10 +2,10 @@
 @using Microsoft.AspNet.Identity;
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = @Resources.Resource.Details;
 }
 
-<h3>Details</h3>
+<h3>@Resources.Resource.Details</h3>
 
 <div class="container">
  
@@ -22,7 +22,7 @@
 
     @*vovkor taxonomy*@
     <div class="row">
-        @Html.Label("Taxonomy", new { @class = "control-label col-sm-2" })
+        @Html.Label(@Resources.Resource.Taxonomy, new { @class = "control-label col-sm-2" })
         <div class="col-sm-4">
             @*оказывается можно проваливаться в связанные таблицы*@
             @Html.DisplayFor(model => model.botanic.taxonomy_genus.taxonomy_family.family_name_calc)
@@ -207,8 +207,9 @@
     }
     else
     {
+        <br>
         <p>
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink(@Resources.Resource.Back2List, "Index")
         </p>
     }
 </div>

@@ -97,11 +97,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Заполните поле &quot;Дата включения в каталог&quot;.
+        /// </summary>
+        public static string AcqDateRequired {
+            get {
+                return ResourceManager.GetString("AcqDateRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Аудит.
         /// </summary>
         public static string audit {
             get {
                 return ResourceManager.GetString("audit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Назад к списку.
+        /// </summary>
+        public static string Back2List {
+            get {
+                return ResourceManager.GetString("Back2List", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Институт-селекционер.
+        /// </summary>
+        public static string bredcode {
+            get {
+                return ResourceManager.GetString("bredcode", resourceCulture);
             }
         }
         
@@ -115,11 +142,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Институт, производивший сбор.
+        /// </summary>
+        public static string collcode {
+            get {
+                return ResourceManager.GetString("collcode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Дата сбора образца.
+        /// </summary>
+        public static string colldate {
+            get {
+                return ResourceManager.GetString("colldate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Номер сбора.
+        /// </summary>
+        public static string CollectingNumber {
+            get {
+                return ResourceManager.GetString("CollectingNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на База данных растительных генетических ресурсов содержит 230 000 образцов.
         /// </summary>
         public static string CollectionSize {
             get {
                 return ResourceManager.GetString("CollectionSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Место сбора (англ.).
+        /// </summary>
+        public static string collsite_eng {
+            get {
+                return ResourceManager.GetString("collsite_eng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Место сбора.
+        /// </summary>
+        public static string collsite_rus {
+            get {
+                return ResourceManager.GetString("collsite_rus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Источник сбора/получения.
+        /// </summary>
+        public static string collsrc {
+            get {
+                return ResourceManager.GetString("collsrc", resourceCulture);
             }
         }
         
@@ -178,6 +259,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Дата пересева.
+        /// </summary>
+        public static string date_reseed {
+            get {
+                return ResourceManager.GetString("date_reseed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на РГР БД.
         /// </summary>
         public static string db {
@@ -205,11 +295,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Страна-донор.
+        /// </summary>
+        public static string doncty {
+            get {
+                return ResourceManager.GetString("doncty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Институт-донор.
+        /// </summary>
+        public static string donor {
+            get {
+                return ResourceManager.GetString("donor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Доступность.
+        /// </summary>
+        public static string dostupen {
+            get {
+                return ResourceManager.GetString("dostupen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Местонахождение страховых дублетов.
+        /// </summary>
+        public static string duplsite {
+            get {
+                return ResourceManager.GetString("duplsite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Изменить.
         /// </summary>
         public static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Высота места сбора.
+        /// </summary>
+        public static string elevation {
+            get {
+                return ResourceManager.GetString("elevation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Экспедиция.
+        /// </summary>
+        public static string expedition {
+            get {
+                return ResourceManager.GetString("expedition", resourceCulture);
             }
         }
         
@@ -223,11 +367,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Широта места сбора.
+        /// </summary>
+        public static string latitude {
+            get {
+                return ResourceManager.GetString("latitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Перейти.
         /// </summary>
         public static string LearnMore {
             get {
                 return ResourceManager.GetString("LearnMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Тип развития.
+        /// </summary>
+        public static string liffom {
+            get {
+                return ResourceManager.GetString("liffom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Долгота места сбора.
+        /// </summary>
+        public static string longitude {
+            get {
+                return ResourceManager.GetString("longitude", resourceCulture);
             }
         }
         
@@ -241,6 +412,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Заполните поле &quot;Название (англ.)&quot;.
+        /// </summary>
+        public static string NameEngRequired {
+            get {
+                return ResourceManager.GetString("NameEngRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Название.
         /// </summary>
         public static string NameRus {
@@ -250,11 +430,110 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Заполните поле &quot;Название&quot;.
+        /// </summary>
+        public static string NameRusRequired {
+            get {
+                return ResourceManager.GetString("NameRusRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Номер образца, присвоенный донором.
+        /// </summary>
+        public static string ndonor {
+            get {
+                return ResourceManager.GetString("ndonor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Экспедиционный номер.
+        /// </summary>
+        public static string nexped {
+            get {
+                return ResourceManager.GetString("nexped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Интродукционный номер.
+        /// </summary>
+        public static string nintrod {
+            get {
+                return ResourceManager.GetString("nintrod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Другие идентификации (номера), связанные с образцом.
+        /// </summary>
+        public static string nother {
+            get {
+                return ResourceManager.GetString("nother", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Страна происхождения.
+        /// </summary>
+        public static string oricode {
+            get {
+                return ResourceManager.GetString("oricode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Владелец.
+        /// </summary>
+        public static string owner_str {
+            get {
+                return ResourceManager.GetString("owner_str", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Генеалогия (англ.).
+        /// </summary>
+        public static string pedigree_eng {
+            get {
+                return ResourceManager.GetString("pedigree_eng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Генеалогия.
+        /// </summary>
+        public static string pedigree_rus {
+            get {
+                return ResourceManager.GetString("pedigree_rus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Примечания.
+        /// </summary>
+        public static string remarks {
+            get {
+                return ResourceManager.GetString("remarks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Отчёты.
         /// </summary>
         public static string reports {
             get {
                 return ResourceManager.GetString("reports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Биологический статус.
+        /// </summary>
+        public static string sampstat {
+            get {
+                return ResourceManager.GetString("sampstat", resourceCulture);
             }
         }
         
@@ -286,6 +565,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Тип хранения.
+        /// </summary>
+        public static string storage {
+            get {
+                return ResourceManager.GetString("storage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Дополнительную информацию о базе данных можно получить у.
         /// </summary>
         public static string SupInfo {
@@ -300,6 +588,15 @@ namespace Resources {
         public static string Taxonomy {
             get {
                 return ResourceManager.GetString("Taxonomy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Заполните поле &quot;Таксономия&quot;.
+        /// </summary>
+        public static string TaxonomyRequired {
+            get {
+                return ResourceManager.GetString("TaxonomyRequired", resourceCulture);
             }
         }
         
