@@ -15,7 +15,7 @@
 {
 
     <div class="form-group">
-        <div class="row">
+        <div class="row" id="hiddenSearch1" >
             <div class="col-md-2">
                 @Html.DropDownList("searchField1", null, htmlAttributes: new { @class = "form-control" })
             </div>
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="row" id="hiddenSearch2">
+        <div class="row" id="hiddenSearch2" > @* style="display:none" *@
             <div class="col-md-2">
                 @Html.DropDownList("searchField2", null, htmlAttributes: new { @class = "form-control" })
             </div>
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div class="row" id="hiddenSearch3">
+        <div class="row" id="hiddenSearch3" >
             <div class="col-md-2">
                 @Html.DropDownList("searchField3", null, htmlAttributes: new { @class = "form-control" })
             </div>
@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        <div class="row" id="hiddenSearch4">
+        <div class="row" id="hiddenSearch4" >
             <div class="col-md-2">
                 @Html.DropDownList("searchField4", null, htmlAttributes: new { @class = "form-control" })
             </div>
@@ -82,7 +82,7 @@
                 @Html.TextBox("searchStrOr44", ViewBag.searchStrOr44 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
         </div>
-        <div class="row" id="hiddenSearch5">
+        <div class="row" id="hiddenSearch5" >
             <div class="col-md-2">
                 @Html.DropDownList("searchField5", null, htmlAttributes: new { @class = "form-control" })
             </div>
@@ -107,6 +107,10 @@
                 @if (User.Identity.GetUserName() != "")
                 {
                     @Html.ActionLink(@Resources.Resource.CreateNew, "Create")
+                }
+                else
+                {
+                    <input type="button" name="plus" value="+" onclick="showSearchField(event)" />
                 }
             </div>
             <div class="col-md-3">
@@ -241,7 +245,14 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
 
     <section class="scripts">
         <script type="text/javascript">
-                    "use strict";
+            "use strict";
+            /*
+            function codeAddress() {
+                alert('ok');
+            }
+
+            window.onload = codeAddress;
+            */
                     // скрыть/показать поля поиска
                     $(function () {
                         // скрывает при загрузке
@@ -252,79 +263,81 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
                             e.stopPropagation();
                         });
                         */
-                        if (!($('#searchStr2').val())) // если пусто
+
+                     
+                          
+                        if (!($('#searchStr2').val()) && !($('#searchStr1').val())) // если пусто
                         {
                             $('#hiddenSearch2').hide(); // скрываем div
+                            console.log("#hiddenSearch2");
                         }
-                        if (!($('#searchStr3').val())) // если пусто
+                        if (!($('#searchStr3').val()) && !($('#searchStr2').val())) // если пусто
                         {
                             $('#hiddenSearch3').hide(); // скрываем div
                         }
-                        if (!($('#searchStr4').val())) // если пусто
+                        if (!($('#searchStr4').val()) && !($('#searchStr3').val())) // если пусто
                         {
                             $('#hiddenSearch4').hide(); // скрываем div
                         }
-                        if (!($('#searchStr5').val())) // если пусто
+                        if (!($('#searchStr5').val()) && !($('#searchStr4').val())) // если пусто
                         {
                             $('#hiddenSearch5').hide(); // скрываем div
                         }
-
+                         
                          //$('#hiddenSearch4').fadeOut();
                          //$('#hiddenSearch5').fadeOut();
 
                     });
-
-                    $(document).ready(function () {
-
-                        $("#searchStr1").change('input', function () {
-                            var valueId = $('#searchStr1').val();
-                            console.log(valueId);
-                            if (valueId) // проверка на пусто
-                            {
-                                $('#hiddenSearch2').show(1000);
-                                console.log('divSearchStr1 is not null');
-                            }
-                            else {
-                               // $('#hiddenSearch2').fadeOut(1000);
-                            }
-                        });
-
-                        $("#searchStr2").change('input', function () {
-
-                            if ($('#searchStr2').val()) // проверка на пусто
-                            {
-                                $('#hiddenSearch3').show(1000);
-                            }
-                            else {
-                              //  $('#hiddenSearch3').fadeOut(1000);
-                            }
-                        });
-
-                        $("#searchStr3").change('input', function () {
-
-                            if ($('#searchStr3').val()) // проверка на пусто
-                            {
-                                $('#hiddenSearch4').show(1000);
-                            }
-                            else {
-                               // $('#hiddenSearch4').fadeOut(1000);
-                            }
-                        });
-
-                        $("#searchStr4").change('input', function () {
-
-                            if ($('#searchStr4').val()) // проверка на пусто
-                            {
-                                $('#hiddenSearch5').show(1000);
-                            }
-                            else {
-                               // $('#hiddenSearch5').fadeOut(1000);
-                            }
-                        });
+ 
+                    function getRealDisplay(elem) {
+                        if (elem.currentStyle) {
+                            return elem.currentStyle.display
+                        } else if (window.getComputedStyle) {
+                            var computedStyle = window.getComputedStyle(elem, null)
+                            return computedStyle.getPropertyValue('display')
+                        }
+                    }
 
 
-                    });
+                    function showSearchField(e) {
+                        /*
+                        if (!($('#searchStr1').val())) {
+                            $('#hiddenSearch2').show(1000);
+                        }
+                        else if (!($('#searchStr2').val())) {
+                            $('#hiddenSearch3').show(1000);
+                        }
+                        else if (!($('#searchStr3').val())) {
+                            $('#hiddenSearch4').show(1000);
+                        }
+                        else if (!($('#searchStr4').val())) {
+                            $('#hiddenSearch5').show(1000);
+                        }
+                        */
+                        var hSearch1 = document.getElementById("hiddenSearch1");
+                        var hSearch2 = document.getElementById("hiddenSearch2");
+                        var hSearch3 = document.getElementById("hiddenSearch3");
+                        var hSearch4 = document.getElementById("hiddenSearch4");
+                        if (getRealDisplay(hSearch4) != 'none') {
+                            $('#hiddenSearch5').show(1000);
+                        }
+                        if (getRealDisplay(hSearch3) != 'none') {
+                            $('#hiddenSearch4').show(1000);
+                        }
+                        if (getRealDisplay(hSearch2) != 'none') {
+                            $('#hiddenSearch3').show(1000);
+                        }
 
+                        if (getRealDisplay(hSearch1) != 'none')
+                        {
+                            //console.log("!!!!")
+                            $('#hiddenSearch2').show(1000);
+                        }
+
+                    }
+                    // как получить элемент?
+                    //var plusButton = document.getElementById("plus");
+                    //plusButton.addEventListener("click", showSearchField);
         </script>
 
     </section>
