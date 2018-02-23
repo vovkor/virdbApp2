@@ -95,7 +95,7 @@ namespace virdbApp2.Controllers
         //public ActionResult Index()
 
 
-        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page, int? genusChoice,
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page, int? genusChoice, string txtMaxRec,
             string searchField1,
             string searchStr1,
             string searchStrOr1,
@@ -120,7 +120,8 @@ namespace virdbApp2.Controllers
            ) // vovkor добавил аргументы
         {
 
-
+            int max_records;
+            string max_records_total;
             // Для поиска
             List<SearchField> SearchFields = new List<SearchField>();
             SearchFields.Add(new SearchField()
@@ -232,7 +233,7 @@ namespace virdbApp2.Controllers
             ViewBag.currentGenus = genusChoice;
             TempData["strGenus"] = genusChoice;
 
-            // Если пришли из другой формы, то genusChoice и page = null. Возьмем их из TempData
+           
             if (TempData["page"] != null && TempData["strFromEdit"] != null) // пришли из Edit
             {
                 page = Convert.ToInt32(TempData["page"].ToString());
@@ -458,6 +459,27 @@ namespace virdbApp2.Controllers
 
 
             ViewBag.countRecords = maindb.Count();
+
+            // выбрать первые 200 записей max_records
+            //max_records_total = Request.Form["txtMaxRec"];ПОЧЕМУ так не пришло?
+
+            //if (String.IsNullOrEmpty(max_records_total)) ПОЧЕМУ так не пришло?
+             if (String.IsNullOrEmpty(txtMaxRec))
+             {
+                ViewBag.str_max_records = "200";
+             }
+          
+             if (Int32.TryParse(txtMaxRec, out max_records)) // StringToInt
+             {
+                 maindb = maindb.Take(max_records);
+             }
+             else
+             {
+                 maindb = maindb.Take(200);
+             }
+             
+           
+
             switch (sortOrder)
             {
                 case "name_desc":
@@ -524,6 +546,7 @@ namespace virdbApp2.Controllers
             {
                 return HttpNotFound();
             }
+            TempData["strFromEdit"] = "1"; // чтобы Index знал, что пришли из Edit
             return View(maindb);
         }
 
@@ -1112,7 +1135,7 @@ namespace virdbApp2.Controllers
 
                 db.Entry(maindb).State = EntityState.Modified;
                 db.SaveChanges();
-
+                TempData["strFromEdit"] = "1"; // чтобы Index знал, что пришли из Edit
 
 
                 return RedirectToAction("Index");

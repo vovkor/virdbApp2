@@ -300,4 +300,10 @@
   <data name="remarks" xml:space="preserve">
     <value>Примечания</value>
   </data>
+  <data name="Genus" xml:space="preserve">
+    <value>Род:</value>
+  </data>
+  <data name="Species" xml:space="preserve">
+    <value>Вид:</value>
+  </data>
 </root>

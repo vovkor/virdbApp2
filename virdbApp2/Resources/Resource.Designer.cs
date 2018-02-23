@@ -358,6 +358,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Род:.
+        /// </summary>
+        public static string Genus {
+            get {
+                return ResourceManager.GetString("Genus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Информация.
         /// </summary>
         public static string information {
@@ -561,6 +570,15 @@ namespace Resources {
         public static string spb {
             get {
                 return ResourceManager.GetString("spb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вид:.
+        /// </summary>
+        public static string Species {
+            get {
+                return ResourceManager.GetString("Species", resourceCulture);
             }
         }
         

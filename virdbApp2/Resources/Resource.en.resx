@@ -300,4 +300,10 @@
   <data name="remarks" xml:space="preserve">
     <value>Remarks</value>
   </data>
+  <data name="Genus" xml:space="preserve">
+    <value>Genus:</value>
+  </data>
+  <data name="Species" xml:space="preserve">
+    <value>Species:</value>
+  </data>
 </root>

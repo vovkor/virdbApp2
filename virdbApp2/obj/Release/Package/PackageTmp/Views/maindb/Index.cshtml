@@ -15,7 +15,21 @@
 {
 
     <div class="form-group">
-        <div class="row" id="hiddenSearch1" >
+        <div class="row">
+            <div class="col-md-2">
+                @Html.Label(@Resources.Resource.Genus)
+            </div>
+
+            <div class="col-md-3">
+                @Html.DropDownList("genusChoice", null, htmlAttributes: new { @class = "form-control", placeholder = "Род" })
+            </div>
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-1">
+            </div>
+
+        </div>
+        <div class="row" id="hiddenSearch1">
             <div class="col-md-2">
                 @Html.DropDownList("searchField1", null, htmlAttributes: new { @class = "form-control" })
             </div>
@@ -32,7 +46,8 @@
             </div>
         </div>
 
-        <div class="row" id="hiddenSearch2" > @* style="display:none" *@
+        <div class="row" id="hiddenSearch2">
+            @* style="display:none" *@
             <div class="col-md-2">
                 @Html.DropDownList("searchField2", null, htmlAttributes: new { @class = "form-control" })
             </div>
@@ -49,7 +64,7 @@
             </div>
         </div>
 
-        <div class="row" id="hiddenSearch3" >
+        <div class="row" id="hiddenSearch3">
             <div class="col-md-2">
                 @Html.DropDownList("searchField3", null, htmlAttributes: new { @class = "form-control" })
             </div>
@@ -66,7 +81,7 @@
             </div>
         </div>
 
-        <div class="row" id="hiddenSearch4" >
+        <div class="row" id="hiddenSearch4">
             <div class="col-md-2">
                 @Html.DropDownList("searchField4", null, htmlAttributes: new { @class = "form-control" })
             </div>
@@ -82,7 +97,7 @@
                 @Html.TextBox("searchStrOr44", ViewBag.searchStrOr44 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
         </div>
-        <div class="row" id="hiddenSearch5" >
+        <div class="row" id="hiddenSearch5">
             <div class="col-md-2">
                 @Html.DropDownList("searchField5", null, htmlAttributes: new { @class = "form-control" })
             </div>
@@ -113,8 +128,12 @@
                     <input type="button" name="plus" value="+" onclick="showSearchField(event)" />
                 }
             </div>
-            <div class="col-md-3">
-                @Html.DropDownList("genusChoice", null, htmlAttributes: new { @class = "form-control", placeholder = "Род" })
+            <div class="col-md-1">
+
+            </div>
+
+            <div class="col-md-2">
+
             </div>
             <div class="col-md-1">
             </div>
@@ -128,8 +147,16 @@
                 @Html.Label(@Resources.Resource.CountRecords) @Html.Display("countRecords")
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-11">
+                
+            </div>
+            <div class="col-md-1">
+                @Html.TextBox("txtMaxRec", ViewBag.str_max_records as string, htmlAttributes: new { @class = "form-control", placeholder = "", size = 5 }) @* внутри формы, поэтому введенное значение сохраняется после submit *@
+            </div>
+        </div>
     </div>
-    <br />
+
 }
 
 
@@ -156,6 +183,9 @@
         </th>
         <th>
             @Html.ActionLink(@Resources.Resource.AcqDate, "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            
         </th>
  @*     <th>
     @Html.ActionLink("Lat | Long", "Index", new { sortOrder = ViewBag.CoordSortParm, currentFilter = ViewBag.CurrentFilter })
@@ -233,7 +263,7 @@
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
 @Html.PagedListPager(Model, page => Url.Action("Index",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, genusChoice = ViewBag.currentGenus }))
 
 
 @section scripts {
