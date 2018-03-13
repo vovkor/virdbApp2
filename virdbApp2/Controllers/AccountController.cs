@@ -9,10 +9,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using virdbApp2.Models;
+using virdbApp2.Filters;
 
 namespace virdbApp2.Controllers
 {
     [Authorize]
+    [Culture]
     public class AccountController : Controller
     {
         public AccountController()

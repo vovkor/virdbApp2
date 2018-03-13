@@ -306,4 +306,22 @@
   <data name="Species" xml:space="preserve">
     <value>Species:</value>
   </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me?</value>
+  </data>
+  <data name="ToLogIn" xml:space="preserve">
+    <value>LogIn</value>
+  </data>
+  <data name="UseLocal" xml:space="preserve">
+    <value>Use a local account to log in.</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
 </root>

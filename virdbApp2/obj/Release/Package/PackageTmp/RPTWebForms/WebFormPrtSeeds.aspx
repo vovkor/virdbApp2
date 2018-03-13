@@ -16,7 +16,7 @@
         <asp:ScriptManager ID="ScriptManagerSeeds" runat="server">
         </asp:ScriptManager>
         <br />
-        <asp:Label ID="lblAccenumber" runat="server" Text="Accenumb"></asp:Label>
+        <asp:Label ID="lblAccenumber" runat="server" Text="Укажите номера образцов через запятую"></asp:Label>
         <br />
         <asp:TextBox ID="txtAccenumber" runat="server" Width="782px"></asp:TextBox>
         <br />

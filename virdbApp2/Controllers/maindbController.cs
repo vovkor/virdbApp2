@@ -80,6 +80,20 @@ public class FilterBuilder
         }
         return condition;
     }
+
+    public Expression Build1(Expression member, string propertyName, string searchStr1)
+    {
+        var miTL = typeof(String).GetMethod("ToLower", Type.EmptyTypes);
+        Expression condition = null;
+
+        foreach (var part in propertyName.Split('.'))
+        {
+            member = Expression.PropertyOrField(member, part);
+        }
+        member = Expression.Call(member, miTL);
+        condition = Expression.Call(member, typeof(string).GetMethod("Contains"), Expression.Constant(searchStr1.ToLower())); //searchStr1
+        return condition;
+    }
 }
 
 
@@ -93,6 +107,8 @@ namespace virdbApp2.Controllers
         // GET: /maindb/
         // правлю Index
         //public ActionResult Index()
+        // Для поиска
+        static List<SearchField> SearchFields = new List<SearchField>();
 
 
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page, int? genusChoice, string txtMaxRec,
@@ -121,9 +137,7 @@ namespace virdbApp2.Controllers
         {
 
             int max_records;
-            string max_records_total;
-            // Для поиска
-            List<SearchField> SearchFields = new List<SearchField>();
+
             SearchFields.Add(new SearchField()
             {
                 code = "accenumb",
@@ -153,7 +167,8 @@ namespace virdbApp2.Controllers
                 code = "country",
                 name = "Страна происхождения",
                 exp = "geography.GEORUS"
-            });
+            });            
+
             ViewBag.searchField1 = new SelectList(SearchFields, "code", "name", "accenumb"); // со значением по умолчанию
             ViewBag.searchField2 = new SelectList(SearchFields, "code", "name", "nameRus");
             ViewBag.searchField3 = new SelectList(SearchFields, "code", "name", "genus");
@@ -662,7 +677,61 @@ namespace virdbApp2.Controllers
 
         }
 
+        // Поиск, автозаполнение
+        public JsonResult AutocompleteSearchStr(string term, string sField) // Виды // AND = &&      OR = ||
+        {
+            IQueryable values_main = null; // Select возвращает тип IQueryable
 
+            var param = Expression.Parameter(typeof(maindb), "m"); // Откуда выбираем данные
+            Expression member = param;
+
+            Expression condition = null;
+            if (String.IsNullOrEmpty(term) == false)
+            {
+                var propertyName = SearchFields.Where(g => g.code.Contains(sField.Trim())).First().exp.Trim(); // "GerbRod.N3"
+                // пользовательский тип FilterBuilder
+                FilterBuilder fb = new FilterBuilder();
+                condition = fb.Build1(member, propertyName, term);
+                var l = Expression.Lambda<Func<maindb, bool>>(condition, param);  //m => m.GerbRod.N3.ToLower().Contains("1") OR  m.GerbRod.N3.ToLower().Contains("2")
+                //Expression<Func<gerb, bool>> 
+                //l.Compile(); // вернёт тип Func<> 
+
+                // Если where принимает аргумент типа Func<>, возвращает тип IEnumerable, а gerbs у нас IQueyable поэтому надо передавать Expression Func<>
+                //maindb = maindb.Where(l); // если нужен тип IEnumerable, то gerbs.Where(l.Compile());
+                //gerbs = gerbs.Where(l.Compile()); // так не компилируется 
+                // запрос 
+                // https://www.codeproject.com/Articles/1079028/Build-Lambda-Expressions-Dynamically
+                // https://stackoverflow.com/questions/16516971/linq-dynamic-select
+                // Формируем Select(a => new { id = a.accenumb, value = a.accenumb, label = a.accenumb })
+                // AutoCompleteData - Куда отдаем данные
+                var xNew = Expression.New(typeof(AutoCompleteData)); // функция new для AutoCompleteData{...}
+                var fields = "id,value,label";
+                var bindings = fields.Split(',').Select( o => o.Trim())
+                    .Select( o => {
+                    var miACData = typeof(AutoCompleteData).GetProperty(o);
+                    //var mi = typeof(maindb).GetProperty(propertyName);
+                    // Expression.Property method does not support nested properties
+                    //var xOriginal = Expression.PropertyOrField(param, propertyName);  //var xOriginal = Expression.Property(param, mi); // MemberExpression (m.accenumb)
+                    var xOriginal = propertyName.Split('.').Aggregate((Expression)param, Expression.Property);
+                   
+                    return Expression.Bind(miACData, xOriginal);
+                  }
+                );
+                var xInit = Expression.MemberInit(xNew, bindings);
+                var lambda = Expression.Lambda<Func<maindb, AutoCompleteData>>(xInit, param);
+                
+                values_main = db.maindb.Where(l //Where(a => (a.species.ToUpper().Contains(term.ToUpper())
+                    )
+                   // .Select(a => new { id = a.accenumb, value = a.accenumb, label = a.accenumb }).Distinct().Take(20); // для autocomplete Требуются label и value
+                   // или
+                   // .Select(a => new { id = a.botanic.taxonomy_genus.genus_name, value = a.botanic.taxonomy_genus.genus_name, label = a.botanic.taxonomy_genus.genus_name }).Distinct().Take(20);
+                   
+                   .Select(lambda).Distinct().Take(20);
+            }
+
+            return Json(values_main, JsonRequestBehavior.AllowGet);
+
+        }
         // GET: /maindb/Create   *******************************************************************************************
         public ActionResult Create()
         {

@@ -31,15 +31,18 @@ namespace virdbApp2.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        //[Display(Name = "User name")]
+        [Display(Name = "UserName", ResourceType = typeof(Resources.Resource))]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        //[Display(Name = "Password")]
+        [Display(Name = "Password", ResourceType = typeof(Resources.Resource))]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        //[Display(Name = "Remember me?")]
+        [Display(Name = "RememberMe", ResourceType = typeof(Resources.Resource))]
         public bool RememberMe { get; set; }
     }
 

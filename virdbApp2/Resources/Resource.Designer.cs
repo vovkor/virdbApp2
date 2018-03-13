@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Номер образца.
+        ///   Ищет локализованную строку, похожую на Номер образца..
         /// </summary>
         public static string accenumb {
             get {
@@ -403,6 +403,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Вход.
+        /// </summary>
+        public static string LogIn {
+            get {
+                return ResourceManager.GetString("LogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Долгота места сбора.
         /// </summary>
         public static string longitude {
@@ -502,6 +511,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Генеалогия (англ.).
         /// </summary>
         public static string pedigree_eng {
@@ -525,6 +543,15 @@ namespace Resources {
         public static string remarks {
             get {
                 return ResourceManager.GetString("remarks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Забыли пароль?.
+        /// </summary>
+        public static string RememberMe {
+            get {
+                return ResourceManager.GetString("RememberMe", resourceCulture);
             }
         }
         
@@ -615,6 +642,33 @@ namespace Resources {
         public static string TaxonomyRequired {
             get {
                 return ResourceManager.GetString("TaxonomyRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Войти.
+        /// </summary>
+        public static string ToLogIn {
+            get {
+                return ResourceManager.GetString("ToLogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Введите имя пользователя и пароль.
+        /// </summary>
+        public static string UseLocal {
+            get {
+                return ResourceManager.GetString("UseLocal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Имя пользователя.
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
             }
         }
         

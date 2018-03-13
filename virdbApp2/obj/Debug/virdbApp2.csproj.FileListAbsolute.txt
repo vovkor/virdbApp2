@@ -181,4 +181,6 @@ C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.Resources.Resource.resources
 C:\Projects\virdbApp2\virdbApp2\bin\en\virdbApp2.resources.dll
 C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.Resources.Resource.en.resources
 C:\Projects\virdbApp2\virdbApp2\obj\Debug\en\virdbApp2.resources.dll
+C:\Projects\virdbApp2\virdbApp2\bin\EPPlus.dll
+C:\Projects\virdbApp2\virdbApp2\bin\EPPlus.xml
 C:\Projects\virdbApp2\virdbApp2\obj\Debug\virdbApp2.csprojResolveAssemblyReference.cache

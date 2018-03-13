@@ -200,4 +200,11 @@ namespace virdbApp2.Models
         public string name { get; set; }
         public string exp { get; set; } 
     }
+
+    public class AutoCompleteData
+    {
+        public string id { get; set; }
+        public string value { get; set; }
+        public string label { get; set; }
+    }
 }

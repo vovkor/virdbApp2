@@ -124,3 +124,5 @@ C:\Projects\virdbApp2\virdbApp2\obj\Release\virdbApp2.Resources.Resource.resourc
 C:\Projects\virdbApp2\virdbApp2\obj\Release\virdbApp2.Resources.Resource.en.resources
 C:\Projects\virdbApp2\virdbApp2\obj\Release\virdbApp2.csproj.GenerateResource.Cache
 C:\Projects\virdbApp2\virdbApp2\obj\Release\en\virdbApp2.resources.dll
+C:\Projects\virdbApp2\virdbApp2\bin\EPPlus.dll
+C:\Projects\virdbApp2\virdbApp2\bin\EPPlus.xml

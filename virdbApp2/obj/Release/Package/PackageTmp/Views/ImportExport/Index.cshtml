@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<head>
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <title>ImportFrom Excel</title>
+</head>
+<style>
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+    }
+
+    .upload {
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+    .head {
+        background-color: greenyellow;
+    }
+
+        .head tr th {
+            text-align: center;
+            font-weight: bold;
+        }
+</style>
+<h3>Импорт данных из Excel файла</h3>
+
+<div class="row" style="padding:15px">
+    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6" id="filePathtxt">
+        <label class="Flabel">Выберите файл</label>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6" id="filePathInput">
+
+        @using (Html.BeginForm("UploadFile", "ImportExport", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="text" class="" id="txtfile" for="uploadXML" />
+            <i id="btnFileLoad" class="fileUpload fa fa-file pull-right" area-hidden="true" onclick="return fileLoad()" style="margin-top:2px;font-size:21px;position:relative;cursor:pointer;color:forestgreen;left:-172px">
+
+            </i>
+            <input type="file" class="upload" name="UploadedFile" id="fileLoadDoc" accept=".xlsx" />
+        }
+        <table class="table table-bordered table-responsive table-striped">
+            <thead class="head">
+            </thead>
+            <tbody class="body"></tbody>
+        </table>
+        <label id="message"></label>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('input[type="file"]').change(function (e) {
+            debugger
+            var filename = e.target.files[0].name;
+            var Files = $("#fileLoadDoc").get(0);
+            $("#txtfile").val(filename);
+            // $("#btnsbmt").trigger("click");
+            formdata = new FormData();
+            for (var i = 0; i < e.target.files.length; i++) {
+                formdata.append(e.target.files[i].name, e.target.files[i]);
+            }
+            $.ajax({
+                url: '@Url.Action("UploadFile", "ImportExport")',
+                type: "POST",
+                datatype: "JSON",
+                contentType: false,
+                processData: false,
+                data: formdata,
+                success: function (result) {
+                    debugger
+                    var count = 0;
+                    if (result != null) {
+                        debugger
+                        $("#message").css('color','green').text("Файл загружен !!!")
+                        $(".head").empty();
+                        $(".body").empty();
+                        for (var i = 0; i < result.row; i++) {
+                            if (i == 0) {
+                                $(".head").append("<tr>");
+                            }
+                            else {
+                                $(".body").append("<tr class='tr"+i+"'>");
+                            }
+                            for (var j = 0; j < result.col; j++) {
+                                if (i==0) {
+                                    $(".head tr").append("<th>" + result.data[count] + "</th>");
+                                }
+                                else
+                                {
+                                    if (result.data[count]!=null) {
+                                        $(".body .tr" + i + "").append("<td>" + result.data[count] + "</td>");
+                                    }
+                                    else
+                                    {
+                                        $(".body .tr" + i + "").append("<td></td>");
+                                    }
+                                }
+                                count++;
+                            }
+                            if (i == 0) {
+                                $(".head").append("</tr>");
+
+                            }
+                            else
+                            {
+                                $(".body .tr"+i+"").append("</tr>");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        $("#message").css('color', 'red').text("Ошибка при загрузке файла !!!")
+                    }
+                }
+            })
+        });
+    });
+    function fileLoad() {
+        debugger
+        $('#txtfile').val("");
+        $('#fileLoadDoc').val("");
+        $('#btnFileLoad').val("");
+        $("#fileLoadDoc").trigger('click');
+    }
+</script>

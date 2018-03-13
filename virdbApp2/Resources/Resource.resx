@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="accenumb" xml:space="preserve">
-    <value>Номер образца</value>
+    <value>Номер образца.</value>
   </data>
   <data name="AccenumbRequired" xml:space="preserve">
     <value>Номер образца не заполнен</value>
@@ -305,5 +305,23 @@
   </data>
   <data name="Species" xml:space="preserve">
     <value>Вид:</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Забыли пароль?</value>
+  </data>
+  <data name="ToLogIn" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="UseLocal" xml:space="preserve">
+    <value>Введите имя пользователя и пароль</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Имя пользователя</value>
   </data>
 </root>
