@@ -106,6 +106,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Расширенный поиск.
+        /// </summary>
+        public static string advancedSearch {
+            get {
+                return ResourceManager.GetString("advancedSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Аудит.
         /// </summary>
         public static string audit {
@@ -489,6 +498,15 @@ namespace Resources {
         public static string nother {
             get {
                 return ResourceManager.GetString("nother", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Или.
+        /// </summary>
+        public static string Or {
+            get {
+                return ResourceManager.GetString("Or", resourceCulture);
             }
         }
         

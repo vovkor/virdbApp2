@@ -324,4 +324,10 @@
   <data name="UserName" xml:space="preserve">
     <value>Имя пользователя</value>
   </data>
+  <data name="Or" xml:space="preserve">
+    <value>Или</value>
+  </data>
+  <data name="advancedSearch" xml:space="preserve">
+    <value>Расширенный поиск</value>
+  </data>
 </root>

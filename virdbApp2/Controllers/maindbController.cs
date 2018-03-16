@@ -137,38 +137,38 @@ namespace virdbApp2.Controllers
         {
 
             int max_records;
-
-            SearchFields.Add(new SearchField()
-            {
-                code = "accenumb",
-                name = "Номер образца",
-                exp = "accenumb"
-            });
-            SearchFields.Add(new SearchField()
-            {
-                code = "nameRus",
-                name = "Название",
-                exp = "accename_rus"
-            });
-            SearchFields.Add(new SearchField()
-            {
-                code = "genus",
-                name = "Род",
-                exp = "botanic.taxonomy_genus.genus_name" // ??? проваливаемся через имена таблиц
-            });
-            SearchFields.Add(new SearchField()
-            {
-                code = "spesies",
-                name = "Вид",
-                exp = "botanic.species"
-            });
-            SearchFields.Add(new SearchField()
-            {
-                code = "country",
-                name = "Страна происхождения",
-                exp = "geography.GEORUS"
-            });            
-
+            if (SearchFields.Count == 0) { 
+                SearchFields.Add(new SearchField()
+                {
+                    code = "accenumb",
+                    name = "Номер образца",
+                    exp = "accenumb"
+                });
+                SearchFields.Add(new SearchField()
+                {
+                    code = "nameRus",
+                    name = "Название",
+                    exp = "accename_rus"
+                });
+                SearchFields.Add(new SearchField()
+                {
+                    code = "genus",
+                    name = "Род",
+                    exp = "botanic.taxonomy_genus.genus_name" // ??? проваливаемся через имена таблиц
+                });
+                SearchFields.Add(new SearchField()
+                {
+                    code = "spesies",
+                    name = "Вид",
+                    exp = "botanic.species"
+                });
+                SearchFields.Add(new SearchField()
+                {
+                    code = "country",
+                    name = "Страна происхождения",
+                    exp = "geography.GEORUS"
+                });
+            }
             ViewBag.searchField1 = new SelectList(SearchFields, "code", "name", "accenumb"); // со значением по умолчанию
             ViewBag.searchField2 = new SelectList(SearchFields, "code", "name", "nameRus");
             ViewBag.searchField3 = new SelectList(SearchFields, "code", "name", "genus");

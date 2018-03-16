@@ -11,23 +11,27 @@
 <h3>@Resources.Resource.AccessionList</h3>
 
 
-@using (Html.BeginForm("Index", "maindb", FormMethod.Get))
+@using (Html.BeginForm("Index", "maindb", FormMethod.Get, new { @name = "myForm" }))
 {
 
     <div class="form-group">
         <div class="row">
             <div class="col-md-2">
-                @Html.Label(@Resources.Resource.Genus)
+                @Html.Label(@Resources.Resource.advancedSearch)
             </div>
-
+            <div class="col-md-1">
+                @Html.CheckBox("enable_advanced_search", false)
+            </div>
             <div class="col-md-3">
-                @Html.DropDownList("genusChoice", null, htmlAttributes: new { @class = "form-control", placeholder = "Род" })
-            </div>
-            <div class="col-md-6">
+                
             </div>
             <div class="col-md-1">
             </div>
+            <div class="col-md-3">
 
+            </div>
+            <div class="col-md-3">
+            </div>
         </div>
         <div class="row" id="hiddenSearch1">
             <div class="col-md-2">
@@ -36,11 +40,11 @@
             <div class="col-md-3">
                 @Html.TextBox("searchStr1", ViewBag.searchStr1 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
-            <div class="col-md-1" align="right">ИЛИ</div>
+            <div class="col-md-1" align="right">@Html.Label(@Resources.Resource.Or)</div>
             <div class="col-md-2">
                 @Html.TextBox("searchStrOr1", ViewBag.searchStrOr1 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
-            <div class="col-md-1" align="right">ИЛИ</div>
+            <div class="col-md-1" align="right">@Html.Label(@Resources.Resource.Or)</div>
             <div class="col-md-2">
                 @Html.TextBox("searchStrOr11", ViewBag.searchStrOr11 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
@@ -54,11 +58,11 @@
             <div class="col-md-3">
                 @Html.TextBox("searchStr2", ViewBag.searchStr2 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
-            <div class="col-md-1" align="right">ИЛИ</div>
+            <div class="col-md-1" align="right">@Html.Label(@Resources.Resource.Or)</div>
             <div class="col-md-2">
                 @Html.TextBox("searchStrOr2", ViewBag.searchStrOr2 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
-            <div class="col-md-1" align="right">ИЛИ</div>
+            <div class="col-md-1" align="right">@Html.Label(@Resources.Resource.Or)</div>
             <div class="col-md-2">
                 @Html.TextBox("searchStrOr22", ViewBag.searchStrOr22 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
@@ -71,11 +75,11 @@
             <div class="col-md-3">
                 @Html.TextBox("searchStr3", ViewBag.searchStr3 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
-            <div class="col-md-1" align="right">ИЛИ</div>
+            <div class="col-md-1" align="right">@Html.Label(@Resources.Resource.Or)</div>
             <div class="col-md-2">
                 @Html.TextBox("searchStrOr3", ViewBag.searchStrOr3 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
-            <div class="col-md-1" align="right">ИЛИ</div>
+            <div class="col-md-1" align="right">@Html.Label(@Resources.Resource.Or)</div>
             <div class="col-md-2">
                 @Html.TextBox("searchStrOr33", ViewBag.searchStrOr33 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
@@ -88,11 +92,11 @@
             <div class="col-md-3">
                 @Html.TextBox("searchStr4", ViewBag.searchSt4 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
-            <div class="col-md-1" align="right">ИЛИ</div>
+            <div class="col-md-1" align="right">@Html.Label(@Resources.Resource.Or)</div>
             <div class="col-md-2">
                 @Html.TextBox("searchStrOr4", ViewBag.searchStrOr4 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
-            <div class="col-md-1" align="right">ИЛИ</div>
+            <div class="col-md-1" align="right">@Html.Label(@Resources.Resource.Or)</div>
             <div class="col-md-2">
                 @Html.TextBox("searchStrOr44", ViewBag.searchStrOr44 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
@@ -104,11 +108,11 @@
             <div class="col-md-3">
                 @Html.TextBox("searchStr5", ViewBag.searchStr5 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
-            <div class="col-md-1" align="right">ИЛИ</div>
+            <div class="col-md-1" align="right">@Html.Label(@Resources.Resource.Or)</div>
             <div class="col-md-2">
                 @Html.TextBox("searchStrOr5", ViewBag.searchStrOr5 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
-            <div class="col-md-1" align="right">ИЛИ</div>
+            <div class="col-md-1" align="right">@Html.Label(@Resources.Resource.Or)</div>
             <div class="col-md-2">
                 @Html.TextBox("searchStrOr55", ViewBag.searchStrOr55 as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
             </div>
@@ -116,25 +120,19 @@
         <div class="row">       </div>
         <br />
 
-        @*Новая запись*@
+        
         <div class="row">
-            <div class="col-md-2">
-                @if (User.Identity.GetUserName() != "")
-                {
-                    @Html.ActionLink(@Resources.Resource.CreateNew, "Create")
-                }
-                else
-                {
-                    <input type="button" name="plus" value="+" onclick="showSearchField(event)" />
-                }
+            <div class="col-md-1" id="hiddenPlus">
+                <input type="button" name="plus" value="+" onclick="showSearchField(event)" />
             </div>
+
             <div class="col-md-1">
-
+                @Html.Label(@Resources.Resource.Genus)
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownList("genusChoice", null, htmlAttributes: new { @class = "form-control", placeholder = "Род" })
             </div>
 
-            <div class="col-md-2">
-
-            </div>
             <div class="col-md-1">
             </div>
             <div class="col-md-2">
@@ -148,8 +146,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-11">
-                
+            <div class="col-md-2">
+                @if (User.Identity.GetUserName() != "")
+                {
+                    @Html.ActionLink(@Resources.Resource.CreateNew, "Create")
+                }
+            </div>
+
+            <div class="col-md-9">
             </div>
             <div class="col-md-1">
                 @Html.TextBox("txtMaxRec", ViewBag.str_max_records as string, htmlAttributes: new { @class = "form-control", placeholder = "", size = 5 }) @* внутри формы, поэтому введенное значение сохраняется после submit *@
@@ -300,12 +304,16 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
                         });
                         */
 
-                     
-                          
+
+                        if (!($('#enable_advanced_search').checked) ) // если пусто
+                        {
+                            $('#hiddenSearch1').hide(); // скрываем div
+                            $('#hiddenPlus').hide(); // скрываем div
+                            //console.log("#hiddenSearch1");
+                        }
                         if (!($('#searchStr2').val()) && !($('#searchStr1').val())) // если пусто
                         {
                             $('#hiddenSearch2').hide(); // скрываем div
-                            console.log("#hiddenSearch2");
                         }
                         if (!($('#searchStr3').val()) && !($('#searchStr2').val())) // если пусто
                         {
@@ -319,12 +327,12 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
                         {
                             $('#hiddenSearch5').hide(); // скрываем div
                         }
-                         
+
                          //$('#hiddenSearch4').fadeOut();
                          //$('#hiddenSearch5').fadeOut();
 
                     });
- 
+
                     function getRealDisplay(elem) {
                         if (elem.currentStyle) {
                             return elem.currentStyle.display
@@ -371,26 +379,46 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
                         }
 
                     }
-                    // как получить элемент?
-                    //var plusButton = document.getElementById("plus");
-                    //plusButton.addEventListener("click", showSearchField);
+                    // назначить функцию событию
+                    document.getElementById("enable_advanced_search").addEventListener("click", showAdvancedSearch);
 
+                    function showAdvancedSearch(e) {
+                        //console.log("showAdvancedSearch");
+                        var enabled = e.target.checked;
+                        if (enabled) {
+                            $('#hiddenSearch1').show(1000);
+                            $('#hiddenPlus').show(1000);
+                            
+                        }
+                        else {
+                            $('#hiddenSearch1').hide(); // скрываем div
+                            $('#searchStr1').val(''); $('#searchStrOr1').val(''); $('#searchStrOr11').val('');
+                            $('#hiddenSearch2').hide(); // скрываем div
+                            $('#searchStr1').val(''); $('#searchStrOr2').val(''); $('#searchStrOr22').val('');
+                            $('#hiddenSearch3').hide(); // скрываем div
+                            $('#searchStr1').val(''); $('#searchStrOr3').val(''); $('#searchStrOr33').val('');
+                            $('#hiddenSearch4').hide(); // скрываем div
+                            $('#searchStr1').val(''); $('#searchStrOr4').val(''); $('#searchStrOr44').val('');
+                            $('#hiddenSearch5').hide(); // скрываем div
+                            $('#searchStr1').val(''); $('#searchStrOr5').val(''); $('#searchStrOr55').val('');
+                            $('#hiddenPlus').hide(); // скрываем div
+                        }
+                    }
 
             // Автозаполнение
             // будет передан один аргумент term и доп аргумент в функцию AutocompleteSearchStr
             //Также знак доллара используется для получения доступа к главному объекту jQuery. $(id) означает document.getElementById(id)
-
-                    $(document).ready(function () {
-                        $("#searchStr1").keypress(function () {
+                    var autocomplete_search = function (sStr, sField) {
+                        $(sStr).keypress(function () {
                             var target = $(this);
-                            var sField1 = $("#searchField1").val();
+                            var sField1 = $(sField).val();
                             var queryString = { sField: sField1 };
                             //Для передачи доп аргумента используем +'/?'+$.param()
                             var url = '@Url.Action("AutocompleteSearchStr", "maindb")' + '/?' + $.param(queryString);
                             //console.log("при выборе searchStr1") // Отладка скрипта
                             //console.log(sField1) // Отладка скрипта
                             // вызываем для target
-                            target.autocomplete({ // для target вызываем autocomplete. 
+                            target.autocomplete({ // для target вызываем autocomplete.
                                 source: url,
                                 minLength: 1,
                                 //source: target.attr("data-autocomplete-source"), minLength: 2,
@@ -398,10 +426,27 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
                                 //select: function (event, ui) { $(this).closest('form').find('.itemExpedId').val(ui.item.id).change(); },
                                 //change: function (event, ui) { console.log(ui.item.value); }
                                 //focus: function (event, ui) {this.value = ui.item.value;}, при наведении фокуса на элемент выпадающего списка значение подставляется в поле
-
                             });
 
                         });
+                    };
+
+                    $(document).ready(function () {
+                        autocomplete_search("#searchStr1", "#searchField1");
+                        autocomplete_search("#searchStrOr1", "#searchField1");
+                        autocomplete_search("#searchStrOr11", "#searchField1");
+                        autocomplete_search("#searchStr2", "#searchField2");
+                        autocomplete_search("#searchStrOr2", "#searchField2");
+                        autocomplete_search("#searchStrOr22", "#searchField2");
+                        autocomplete_search("#searchStr3", "#searchField3");
+                        autocomplete_search("#searchStrOr3", "#searchField3");
+                        autocomplete_search("#searchStrOr33", "#searchField3");
+                        autocomplete_search("#searchStr4", "#searchField4");
+                        autocomplete_search("#searchStrOr4", "#searchField4");
+                        autocomplete_search("#searchStrOr44", "#searchField4");
+                        autocomplete_search("#searchStr5", "#searchField5");
+                        autocomplete_search("#searchStrOr5", "#searchField5");
+                        autocomplete_search("#searchStrOr55", "#searchField5");
                     });
 
         </script>

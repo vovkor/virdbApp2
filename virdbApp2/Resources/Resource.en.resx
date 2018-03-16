@@ -324,4 +324,10 @@
   <data name="UserName" xml:space="preserve">
     <value>User name</value>
   </data>
+  <data name="Or" xml:space="preserve">
+    <value>Or</value>
+  </data>
+  <data name="advancedSearch" xml:space="preserve">
+    <value>Advanced search</value>
+  </data>
 </root>
