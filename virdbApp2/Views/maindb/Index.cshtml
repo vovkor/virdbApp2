@@ -20,7 +20,7 @@
                 @Html.Label(@Resources.Resource.advancedSearch)
             </div>
             <div class="col-md-1">
-                @Html.CheckBox("enable_advanced_search", false)
+                @Html.CheckBox("enable_advanced_search") @*, false)*@
             </div>
             <div class="col-md-3">
                 
@@ -305,12 +305,20 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
                         */
 
 
-                        if (!($('#enable_advanced_search').checked) ) // если пусто
+                        if (!(document.getElementById("enable_advanced_search").checked)) // если undefined?
                         {
                             $('#hiddenSearch1').hide(); // скрываем div
+                            $('#hiddenSearch2').hide(); // скрываем div
+                            $('#hiddenSearch3').hide(); // скрываем div
+                            $('#hiddenSearch4').hide(); // скрываем div
+                            $('#hiddenSearch5').hide(); // скрываем div
+                            console.log("скрыли hiddenPlus");
                             $('#hiddenPlus').hide(); // скрываем div
-                            //console.log("#hiddenSearch1");
+                            console.log(document.getElementById("enable_advanced_search").checked);
                         }
+
+                        
+                        
                         if (!($('#searchStr2').val()) && !($('#searchStr1').val())) // если пусто
                         {
                             $('#hiddenSearch2').hide(); // скрываем div
@@ -358,6 +366,7 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
                             $('#hiddenSearch5').show(1000);
                         }
                         */
+                        console.log("showSearchField")
                         var hSearch1 = document.getElementById("hiddenSearch1");
                         var hSearch2 = document.getElementById("hiddenSearch2");
                         var hSearch3 = document.getElementById("hiddenSearch3");
@@ -374,7 +383,6 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
 
                         if (getRealDisplay(hSearch1) != 'none')
                         {
-                            //console.log("!!!!")
                             $('#hiddenSearch2').show(1000);
                         }
 

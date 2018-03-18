@@ -131,7 +131,8 @@ namespace virdbApp2.Controllers
             string searchField5,
             string searchStr5,
             string searchStrOr5,
-            string searchStrOr55
+            string searchStrOr55,
+            string enable_advanced_search
 
            ) // vovkor добавил аргументы
         {
@@ -267,14 +268,15 @@ namespace virdbApp2.Controllers
             }
 
             // чтобы поля поиска не сбрасывались
-            ViewBag.CurrentFilter = searchString;
+            ViewBag.CurrentFilter = searchString;  //Зачем? и так сохраняется в поле
+            ViewBag.enable_advanced_search = enable_advanced_search;
 
             if (searchStr1 != null)
             {
                 ViewBag.searchField1 = new SelectList(SearchFields, "code", "name", SearchFields.Where(g => g.code.Contains(searchField1)).First().code); // со значением по умолчанию
-                ViewBag.searchStr1 = searchStr1;
-                ViewBag.searchStrOr1 = searchStrOr1;
-                ViewBag.searchStrOr11 = searchStrOr11;
+                ViewBag.searchStr1 = searchStr1; //Зачем? и так сохраняется в поле
+                ViewBag.searchStrOr1 = searchStrOr1; //Зачем? и так сохраняется в поле
+                ViewBag.searchStrOr11 = searchStrOr11; //Зачем? и так сохраняется в поле
             }
             if (searchStr2 != null)
             {
